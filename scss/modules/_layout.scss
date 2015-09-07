@@ -1,0 +1,321 @@
+/**
+* File:        _layout.scss
+* Description: _layout.scss contains all styles for page structure setup for makeitso
+* Author:      Sebastiaan Bonardt - @_sebbon
+*/
+
+/**
+* About the Responsive Web Design breakpoints in this setup:
+* from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
+* Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
+* 
+* page setup: body direct descendants are the main wrappers containing direct 
+* descendant with .inner-wrap class set to center the content on the page. Used in favor 
+* of a general top level wrap all wrapper for esthetics sake. 
+*
+* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+* background color, but the contents needs to be centered on the page
+*
+* ! If no full width background-colors are in the design you can remove the inner-wrap div's and
+* set the $site-max-width on the body with margin:0 auto;
+*
+*/
+
+html {
+    height:100%;
+}
+
+body {
+    min-height:100%;
+    margin:0;
+    position:relative;
+    padding:0;
+    > header, footer, main, [role="main"] {
+            width:100%;
+            display:block;
+            overflow:hidden;
+    }
+    > header {
+        padding:0;
+        background-color:$white;
+        // .inner-wrap {
+        //     padding-top:2em;
+        // }
+    }
+    > main,[role="main"] {
+        margin:0 0 2em;  
+    }
+    > footer {
+        min-height:5em;
+        background-color:$baseSecondThemeColour;
+        padding:1em 0;
+    }
+}
+
+.inner-wrap {
+    @extend %group;
+    margin: 0 auto;
+    padding:0 0.625em;
+    max-width: $site-max-width;
+    position:relative;
+}
+
+.skipcontent {
+    background-color: #fff;
+    left: -9999px;
+    padding: 0.3125em 1em;
+    position: absolute;
+    padding:0.5em 0.75em;
+    display:inline-block;  
+    z-index:2;  
+    &:focus {
+        left:1.25em;                     
+    }
+}
+
+.logo {
+    margin-bottom:1em;
+    a {
+        display:block;
+    }
+    @include respond-to(medium-screens) {
+        float:left;
+    }
+    span {
+        
+        display:block;
+        //display:none;
+    }
+    &.centered {
+        text-align: center;
+        @include respond-to(medium-screens) {
+            float:none;
+        }
+        a {
+            display:inline-block;
+        }
+        img {
+            margin-left:42.5%;
+        }
+
+    }
+}
+
+.site-name {
+    display:block;
+}
+
+.site-title {
+    background-color: $baseSecondThemeColour;
+}
+
+// search block styling
+.search {
+    margin:1em 1em 1em 0.625em;
+    overflow:hidden;
+    max-width:480px;
+    display:block;
+    @include respond-to(small-screens) {
+        max-width:320px;
+         float:right;
+    }
+    @include respond-to(large-screens) {
+        margin:0 0.625em 0 0;
+    }
+    label {
+        display:none;
+        clear:both;
+    }
+    [type="submit"] {
+        padding:0 0.75em;
+        border-left:0;
+        width:70px;
+    }
+    [type="text"] {
+        width:175px;
+    }
+    input, button {
+        border:0;
+        height:30px;
+        float:left;
+        width:calc(100% - 71px);
+        padding-left:0.35em;
+    }
+}
+
+.toggle-btn-wrap {
+    float:right;
+    .toggleable-menu & {
+        overflow:hidden;
+        float:none;
+        width:100%;
+        @include respond-to(medium-screens) {
+            float:right;
+            width:auto;
+        }
+    }
+    a[class*="toggle"] {
+        &:link, &:visited {
+            color:$baseSecondThemeColour;
+            text-decoration: none;
+        }
+        &:hover, &:active, &.toggle-active {
+            background-color: $baseSecondThemeColour;
+            color:$baseFirstThemeColour;
+        }
+    }
+}
+
+.toggle-menu {
+    float:left;
+    display:none;
+    height:30px;
+    margin-right:1em;
+    padding: 0.25em 0.5em;
+    @include respond-to(medium-screens) {
+        display:none;
+    }
+}
+
+.toggle-search {
+    float:right;
+    display:none;
+    height:30px;
+    padding: 0.25em 0.5em;
+    @include respond-to(medium-screens) {
+        display:none;
+        margin-right:0.625em;
+    }
+}
+
+nav {
+    background-color:$baseFirstThemeColour;
+    padding-top:0.5em;
+    border-bottom:10px solid $baseSecondThemeColour;
+    .menu {
+        float:left;
+        width:calc(100% - 90px);
+        @include respond-to(medium-screens) {
+            width: calc(100% - 290px);
+            margin-left:0.625em;
+        }
+    }
+    ul {
+        padding:0;
+        overflow:hidden;
+        
+    }
+    li {
+        list-style: none;
+        float: left;
+        @include respond-to(medium-screens) {
+            padding-right:0.2em;
+        }
+        a {
+            padding:0.5em 0.75em; 
+            display:block;
+            font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+            &:link, &:visited {
+                color:$baseSecondThemeColour;
+                text-decoration: none;
+            }
+            &:hover, &:active, &.active {
+                background-color: $baseSecondThemeColour;
+                color:$baseFirstThemeColour;
+            }
+        }    
+    }
+
+    .toggleable-menu & {
+        float:left;
+        width:100%;
+        .inner-wrap {
+            padding:0;
+        }
+        .menu {
+            float:left;
+            width:100%;
+            @include respond-to(medium-screens) {
+                //float:none;
+                width:calc(100% - 90px);
+            }
+            @include respond-to(large-screens) {
+                //float:none;
+                width:calc(100% - 280px);
+            }
+        }
+        li {
+            float:none;  
+            @include respond-to(medium-screens) {
+                padding-right:0.2em;
+            }
+            a {
+                padding:0.5em;
+            }
+        }
+        @include respond-to(medium-screens) {
+            li {
+                float:left;
+                a {
+                    padding:0.5em 0.75em;
+                }
+            }
+        }
+    }
+}
+
+.secondary-menu, .meta-menu {
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    @include respond-to(medium-screens) {
+        float:right;
+    }
+    @include respond-to(large-screens) {
+        position:absolute;
+        bottom:0;
+        right:0;
+        left:auto;
+        top:auto;
+    }
+    li {
+        list-style: none;
+        float:left;
+        a {
+            padding:0.5em; 
+            display:block; 
+        }    
+    }
+}
+
+.breadcrumb {
+    margin:1em 0;
+}
+
+footer {
+    .inner-wrap {
+        @include respond-to(medium-screens) {
+            display: flex;
+            justify-content: flex-start;
+            align-items:stretch;
+        }
+    }
+}
+
+.footer-block {
+    @include respond-to(medium-screens) {
+        float:left;
+        width:46%;
+        margin-right:2%;
+
+
+    }
+    @include respond-to(large-screens) {
+        width:31%;
+    }
+}
+
+.comments {
+
+}

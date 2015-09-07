@@ -1,0 +1,170 @@
+/**
+ * File:        _typography.scss
+ * Description: _typography.scss contains all text styles for makeitso 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+/**
+ *  ROSans and ROSerif 
+ */
+
+@font-face {
+    font-family: "ROSans";
+    src: url("../webfonts/ROsanswebtextregular.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROsanswebtextregular.ttf") format("opentype"),
+    url("../webfonts/ROsanswebtextregular.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "ROSansBold";
+    src: url("../webfonts/ROsanswebtextbold.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROsanswebtextbold.ttf") format("opentype"),
+    url("../webfonts/ROsanswebtextbold.woff") format("woff");
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "ROSansItalic";
+    src: url("../webfonts/ROsanswebtextitalic.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROsanswebtextitalic.ttf") format("opentype"),
+    url("../webfonts/ROsanswebtextitalic.woff") format("woff");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ROSerif";
+    src: url("../webfonts/ROserifwebregular.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROserifwebregular.ttf") format("opentype"),
+    url("../webfonts/ROserifwebregular.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "ROSerifBold";
+    src: url("../webfonts/ROserifwebbold.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROserifwebbold.ttf") format("opentype"),
+    url("../webfonts/ROserifwebbold.woff") format("woff");
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "ROSerifItalic";
+    src: url("../webfonts/ROserifwebitalic.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/ROserifwebitalic.ttf") format("opentype"),
+    url("../webfonts/ROserifwebitalic.woff") format("woff");
+    font-style: italic;
+    font-weight: 400;
+}
+
+body {
+    font-size:100%;
+    font-family:$base-font-family;
+    color:$baseFontColour;
+}
+
+h1, h2, h3, h4, h5 {
+    color:$baseFontHeaderColour;
+    margin-top:0;
+    font-family: "ROSerifBold", "Georgia", serif;
+    font-weight:400;
+    font-style:normal;
+}
+
+h1 {
+    @include header-font-size(3em);
+    .site-title & {
+        @include header-font-size(1);
+        margin-bottom:0;
+        padding:0.25em 0;
+        font-family: "ROSansBold", "Droid Sans", Arial, Sans-serif;
+        font-weight:700;
+        font-style:normal;
+    }
+}
+
+h2 {
+    @include header-font-size(2.25em);
+}
+
+h3 {
+    @include header-font-size(1.75em);
+}
+
+h4 {
+    @include header-font-size(1.125em);
+}
+
+h5 {
+    @include header-font-size(3em);
+}
+
+blockquote {
+    @include header-font-size(1.5);
+    padding:1em;
+    background-color:$baseFirstThemeColour;
+    font-family: 'ROSans', 'Droid Sans', Arial, Sans-serif;
+}
+
+ul {
+    padding:0;
+    margin:0;
+    li {
+        padding:0;
+        margin:0;
+    }
+}
+
+a, a:link, a:visited {
+    color:$baseLinkColour;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration:none;
+}
+
+.btn {
+    padding: 0.25em 0.5em;
+    background-color: $baseFirstThemeColour;
+    border:1px solid $black;
+}
+
+main, footer, .highlighted {
+    p, ul, ol, a, pre, cite, blockquote, table {
+        margin:0 0 1.5em 0;
+        @include font-size(0.9375);
+    }
+    ol {
+        counter-reset:li; /* Initiate a counter */
+        margin-left:0; /* Remove the default left margin */
+        padding-left:0; /* Remove the default left padding */
+        > li {
+            position:relative; /* Create a positioning context */
+            list-style:none; /* Disable the normal item numbering */
+            padding-left:1.7em;
+            margin-bottom:1em;
+            &:before {
+                position:absolute;
+                top:0;
+                left:0;
+                @include font-size(1.25);
+                line-height:1;
+                width:2em;
+                text-align:left;
+                content:counter(li); /* Use the counter as content */
+                counter-increment:li; /* Increment the counter by 1 */
+            }
+        }
+    }
+    li ol, li ul {
+        margin-top:0.5em;
+    }
+    ol ol li:last-child {
+        margin-bottom:0;
+    }
+    ul {
+        margin-left:1em;
+    }
+}
+
