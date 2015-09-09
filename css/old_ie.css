@@ -887,58 +887,86 @@ body > footer {
 }
 /* line 84, ../scss/modules/_layout.scss */
 .logo span {
-  display: block;
+  display: none;
 }
-/* line 89, ../scss/modules/_layout.scss */
+/* line 87, ../scss/modules/_layout.scss */
 .logo.centered {
   text-align: center;
   float: none;
 }
-/* line 94, ../scss/modules/_layout.scss */
+/* line 92, ../scss/modules/_layout.scss */
 .logo.centered a {
   display: inline-block;
 }
-/* line 97, ../scss/modules/_layout.scss */
+/* line 95, ../scss/modules/_layout.scss */
 .logo.centered img {
   margin-left: 42.5%;
 }
 
-/* line 104, ../scss/modules/_layout.scss */
+/* line 102, ../scss/modules/_layout.scss */
 .site-name {
   display: block;
 }
 
-/* line 108, ../scss/modules/_layout.scss */
+/* line 106, ../scss/modules/_layout.scss */
 .site-title {
   background-color: #e5f0f9;
 }
 
-/* line 113, ../scss/modules/_layout.scss */
+/* line 111, ../scss/modules/_layout.scss */
 .search {
-  margin: 1em 1em 1em 0.625em;
+  padding: 1.25em 0.625em 1em 0.625em;
   overflow: hidden;
   max-width: 480px;
   display: block;
-  max-width: 320px;
-  float: right;
+  background-color: #e5f0f9;
+  clear: both;
+  width: 100%;
+  float: left;
+  max-width: none;
   margin: 0 0.625em 0 0;
+  float: right;
+  padding: 0;
+  width: auto;
+  clear: none;
 }
-/* line 125, ../scss/modules/_layout.scss */
+/* line 130, ../scss/modules/_layout.scss */
+.toggleable-menu .search {
+  margin: 0 0.625em;
+}
+/* line 138, ../scss/modules/_layout.scss */
+.search > div {
+  float: right;
+  width: auto;
+}
+/* line 142, ../scss/modules/_layout.scss */
 .search label {
   display: none;
   clear: both;
 }
-/* line 129, ../scss/modules/_layout.scss */
+/* line 146, ../scss/modules/_layout.scss */
 .search [type="submit"] {
   padding: 0 0.75em;
   border-left: 0;
   width: 70px;
+  background-color: #154273;
+  font-family: "ROSans", "arial", serif;
+  font-weight: 400;
+  color: #e5f0f9;
+  background-color: #e5f0f9;
+  color: #154273;
 }
-/* line 134, ../scss/modules/_layout.scss */
+/* line 158, ../scss/modules/_layout.scss */
+.search [type="submit"]:hover, .search [type="submit"]:active, .search [type="submit"]:focus {
+  background-color: #1d5b9e;
+  background-color: #d0e4f4;
+}
+/* line 165, ../scss/modules/_layout.scss */
 .search [type="text"] {
   width: 175px;
+  font-family: "ROSans", "arial", serif;
 }
-/* line 137, ../scss/modules/_layout.scss */
+/* line 169, ../scss/modules/_layout.scss */
 .search input, .search button {
   border: 0;
   height: 30px;
@@ -947,11 +975,11 @@ body > footer {
   padding-left: 0.35em;
 }
 
-/* line 146, ../scss/modules/_layout.scss */
+/* line 178, ../scss/modules/_layout.scss */
 .toggle-btn-wrap {
   float: right;
 }
-/* line 148, ../scss/modules/_layout.scss */
+/* line 180, ../scss/modules/_layout.scss */
 .toggleable-menu .toggle-btn-wrap {
   overflow: hidden;
   float: none;
@@ -959,18 +987,23 @@ body > footer {
   float: right;
   width: auto;
 }
-/* line 158, ../scss/modules/_layout.scss */
+/* line 189, ../scss/modules/_layout.scss */
+.toggle-btn-wrap a[class*="toggle"] {
+  font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+  font-weight: bold;
+}
+/* line 192, ../scss/modules/_layout.scss */
 .toggle-btn-wrap a[class*="toggle"]:link, .toggle-btn-wrap a[class*="toggle"]:visited {
   color: #e5f0f9;
   text-decoration: none;
 }
-/* line 162, ../scss/modules/_layout.scss */
+/* line 196, ../scss/modules/_layout.scss */
 .toggle-btn-wrap a[class*="toggle"]:hover, .toggle-btn-wrap a[class*="toggle"]:active, .toggle-btn-wrap a[class*="toggle"].toggle-active {
   background-color: #e5f0f9;
   color: #154273;
 }
 
-/* line 169, ../scss/modules/_layout.scss */
+/* line 203, ../scss/modules/_layout.scss */
 .toggle-menu {
   float: left;
   display: none;
@@ -980,91 +1013,105 @@ body > footer {
   display: none;
 }
 
-/* line 180, ../scss/modules/_layout.scss */
+/* line 214, ../scss/modules/_layout.scss */
 .toggle-search {
   float: right;
   display: none;
-  height: 30px;
-  padding: 0.25em 0.5em;
+  padding: 0.4em 0.5em 0.6em;
+  width: 80px;
   display: none;
   margin-right: 0.625em;
 }
+/* line 219, ../scss/modules/_layout.scss */
+.toggleable-menu .toggle-search {
+  height: 30px;
+  padding: 0.25em 0.5em;
+  height: auto;
+  padding: 0.4em 0.5em 0.6em;
+  margin-right: 0;
+}
 
-/* line 191, ../scss/modules/_layout.scss */
+/* line 234, ../scss/modules/_layout.scss */
 nav {
   background-color: #154273;
   padding-top: 0.5em;
   border-bottom: 10px solid #e5f0f9;
+  padding-top: 0.65em;
 }
-/* line 195, ../scss/modules/_layout.scss */
+/* line 241, ../scss/modules/_layout.scss */
 nav .menu {
   float: left;
-  width: calc(100% - 90px);
+  width: calc(100% - 75px);
   width: calc(100% - 290px);
-  margin-left: 0.625em;
 }
-/* line 203, ../scss/modules/_layout.scss */
+/* line 249, ../scss/modules/_layout.scss */
 nav ul {
   padding: 0;
   overflow: hidden;
 }
-/* line 208, ../scss/modules/_layout.scss */
+/* line 256, ../scss/modules/_layout.scss */
 nav li {
   list-style: none;
   float: left;
   padding-right: 0.2em;
 }
-/* line 214, ../scss/modules/_layout.scss */
+/* line 262, ../scss/modules/_layout.scss */
 nav li a {
   padding: 0.5em 0.75em;
   display: block;
   font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+  padding: 0.55em 0.75em 0.75em;
 }
-/* line 218, ../scss/modules/_layout.scss */
+/* line 269, ../scss/modules/_layout.scss */
 nav li a:link, nav li a:visited {
   color: #e5f0f9;
   text-decoration: none;
 }
-/* line 222, ../scss/modules/_layout.scss */
+/* line 273, ../scss/modules/_layout.scss */
 nav li a:hover, nav li a:active, nav li a.active {
   background-color: #e5f0f9;
   color: #154273;
 }
-/* line 229, ../scss/modules/_layout.scss */
+/* line 280, ../scss/modules/_layout.scss */
 .toggleable-menu nav {
   float: left;
   width: 100%;
 }
-/* line 232, ../scss/modules/_layout.scss */
+/* line 283, ../scss/modules/_layout.scss */
 .toggleable-menu nav .inner-wrap {
   padding: 0;
 }
-/* line 235, ../scss/modules/_layout.scss */
+/* line 286, ../scss/modules/_layout.scss */
 .toggleable-menu nav .menu {
   float: left;
   width: 100%;
   width: calc(100% - 90px);
+  padding-left: 0.625em;
   width: calc(100% - 280px);
 }
-/* line 247, ../scss/modules/_layout.scss */
+/* line 299, ../scss/modules/_layout.scss */
 .toggleable-menu nav li {
   float: none;
   padding-right: 0.2em;
 }
-/* line 252, ../scss/modules/_layout.scss */
+/* line 304, ../scss/modules/_layout.scss */
 .toggleable-menu nav li a {
   padding: 0.5em;
 }
-/* line 257, ../scss/modules/_layout.scss */
+/* line 309, ../scss/modules/_layout.scss */
 .toggleable-menu nav li {
   float: left;
 }
-/* line 259, ../scss/modules/_layout.scss */
+/* line 311, ../scss/modules/_layout.scss */
 .toggleable-menu nav li a {
   padding: 0.5em 0.75em;
 }
+/* line 317, ../scss/modules/_layout.scss */
+.toggleable-menu nav li a {
+  padding: 0.55em 0.75em 0.75em;
+}
 
-/* line 267, ../scss/modules/_layout.scss */
+/* line 324, ../scss/modules/_layout.scss */
 .secondary-menu, .meta-menu {
   overflow: hidden;
   position: absolute;
@@ -1077,30 +1124,30 @@ nav li a:hover, nav li a:active, nav li a.active {
   left: auto;
   top: auto;
 }
-/* line 282, ../scss/modules/_layout.scss */
+/* line 339, ../scss/modules/_layout.scss */
 .secondary-menu li, .meta-menu li {
   list-style: none;
   float: left;
 }
-/* line 285, ../scss/modules/_layout.scss */
+/* line 342, ../scss/modules/_layout.scss */
 .secondary-menu li a, .meta-menu li a {
   padding: 0.5em;
   display: block;
 }
 
-/* line 292, ../scss/modules/_layout.scss */
+/* line 349, ../scss/modules/_layout.scss */
 .breadcrumb {
   margin: 1em 0;
 }
 
-/* line 297, ../scss/modules/_layout.scss */
+/* line 354, ../scss/modules/_layout.scss */
 footer .inner-wrap {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-/* line 306, ../scss/modules/_layout.scss */
+/* line 363, ../scss/modules/_layout.scss */
 .footer-block {
   float: left;
   width: 46%;

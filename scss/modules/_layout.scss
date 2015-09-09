@@ -82,9 +82,7 @@ body {
         float:left;
     }
     span {
-        
-        display:block;
-        //display:none;
+        display:none;
     }
     &.centered {
         text-align: center;
@@ -111,16 +109,35 @@ body {
 
 // search block styling
 .search {
-    margin:1em 1em 1em 0.625em;
+    padding:1.25em 0.625em 1em 0.625em;
     overflow:hidden;
     max-width:480px;
     display:block;
+    background-color:$baseSecondThemeColour;
+    clear:both;
     @include respond-to(small-screens) {
-        max-width:320px;
-         float:right;
+         width:100%;
+         float:left;
+         max-width: none;
     }
     @include respond-to(large-screens) {
         margin:0 0.625em 0 0;
+        float:right;
+        padding:0;
+        width: auto;
+        clear:none;
+    }
+    .toggleable-menu & {
+        @include respond-to(medium-screens) {
+
+        }
+        @include respond-to(large-screens) {
+            margin:0 0.625em;
+        }
+    }
+    > div {
+        float:right;
+        width:auto;
     }
     label {
         display:none;
@@ -130,9 +147,24 @@ body {
         padding:0 0.75em;
         border-left:0;
         width:70px;
+        background-color:$baseFirstThemeColour;
+        font-family: "ROSans", "arial", serif;
+        font-weight:400;
+        color:$baseSecondThemeColour;
+        @include respond-to(large-screens) {
+            background-color:$baseSecondThemeColour;
+            color:$baseFirstThemeColour;
+        }
+        &:hover, &:active, &:focus {
+            background-color:lighten($baseFirstThemeColour, 10%);
+            @include respond-to(large-screens) {
+                background-color:darken($baseSecondThemeColour, 5%);
+            }
+        }
     }
     [type="text"] {
         width:175px;
+        font-family: "ROSans", "arial", serif;
     }
     input, button {
         border:0;
@@ -155,6 +187,8 @@ body {
         }
     }
     a[class*="toggle"] {
+        font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+        font-weight: bold;
         &:link, &:visited {
             color:$baseSecondThemeColour;
             text-decoration: none;
@@ -180,8 +214,17 @@ body {
 .toggle-search {
     float:right;
     display:none;
-    height:30px;
-    padding: 0.25em 0.5em;
+    padding: 0.4em 0.5em 0.6em;
+    width:80px;
+    .toggleable-menu & {
+        height:30px;
+        padding: 0.25em 0.5em;
+        @include respond-to(medium-screens) {
+            height:auto;
+            padding: 0.4em 0.5em 0.6em;
+            margin-right:0;
+        }
+    }
     @include respond-to(medium-screens) {
         display:none;
         margin-right:0.625em;
@@ -192,15 +235,20 @@ nav {
     background-color:$baseFirstThemeColour;
     padding-top:0.5em;
     border-bottom:10px solid $baseSecondThemeColour;
+    @include respond-to(large-screens) {
+        padding-top:0.65em;
+    }
     .menu {
         float:left;
-        width:calc(100% - 90px);
-        @include respond-to(medium-screens) {
+        width:calc(100% - 75px);
+        @include respond-to(large-screens) {
             width: calc(100% - 290px);
-            margin-left:0.625em;
+            // margin-left:0.625em;
         }
     }
     ul {
+        // border-top:00px solid $baseSecondThemeColour;
+        // background-color: $baseSecondThemeColour;
         padding:0;
         overflow:hidden;
         
@@ -215,6 +263,9 @@ nav {
             padding:0.5em 0.75em; 
             display:block;
             font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+            @include respond-to(large-screens) {
+                padding:0.55em 0.75em 0.75em;
+            }
             &:link, &:visited {
                 color:$baseSecondThemeColour;
                 text-decoration: none;
@@ -238,6 +289,7 @@ nav {
             @include respond-to(medium-screens) {
                 //float:none;
                 width:calc(100% - 90px);
+                padding-left: 0.625em;
             }
             @include respond-to(large-screens) {
                 //float:none;
@@ -259,6 +311,11 @@ nav {
                 a {
                     padding:0.5em 0.75em;
                 }
+            }
+        }
+        @include respond-to(large-screens) {
+            li a {
+                padding:0.55em 0.75em 0.75em;
             }
         }
     }
