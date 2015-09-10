@@ -43,11 +43,18 @@ body {
         // }
     }
     > main,[role="main"] {
-        margin:0 0 2em;  
+        padding-bottom:3em;
+        position: relative;
+        @include respond-to(medium-screens) {
+            padding-bottom:4em;
+        }
+        @include respond-to(large-screens) {
+            padding-bottom:5em;
+        }
     }
     > footer {
-        min-height:5em;
-        background-color:$baseSecondThemeColour;
+        min-height:10em;
+        background-color:$lightGrey;
         padding:1em 0;
     }
 }
@@ -93,7 +100,7 @@ body {
             display:inline-block;
         }
         img {
-            margin-left:42.5%;
+            margin-left:40%;
         }
 
     }
@@ -205,7 +212,33 @@ body {
     display:none;
     height:30px;
     margin-right:1em;
-    padding: 0.25em 0.5em;
+    padding: 0.25em 0.5em 0.25em 1.5em;
+    position: relative;
+    
+    span {
+      display: block;
+      position: absolute;
+      top: 11px;
+      left: 11px;
+      width:10px;
+      height: 1px;
+      background: white;
+      &:before, &:after {
+            position: absolute;
+            display: block;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            content: "";
+      }
+      &:before {
+         top: 3px;
+      }
+      &:after {
+        bottom: -6px;
+      }
+    }
     @include respond-to(medium-screens) {
         display:none;
     }
@@ -216,6 +249,10 @@ body {
     display:none;
     padding: 0.4em 0.5em 0.6em;
     width:80px;
+    &:before {
+        content: "▸";
+        margin-right: 0.3em;
+    }
     .toggleable-menu & {
         height:30px;
         padding: 0.25em 0.5em;
@@ -347,30 +384,183 @@ nav {
 }
 
 .breadcrumb {
-    margin:1em 0;
+    padding: 1em 0;
+    background-color: $baseSecondThemeColour;
+    width: 100%;
+}
+
+
+// <section> and main <article> under <main>
+.main-content {
+    position:relative;
+    > header, .heading {
+        background-color: $baseSecondThemeColour;
+        margin-bottom:1em;
+    }
+    // > .content {
+    //     @include display-flex;
+    //     @include flex-direction(column);
+    //     @include respond-to(large-screens) {
+    //         display: inherit;
+    //         flex-direction:unset;
+    //     }
+    // }
+    .content-wrap {
+        @include order(1);
+        width:100%;
+        @include respond-to(large-screens) {
+            width: 66%;
+            margin-right:2%;
+            float:left;
+            @include order(0);
+        }
+        & + aside {
+            @include respond-to(large-screens) {
+                width: 30%;
+                margin-left:2%;
+                float:right;
+            }
+        }
+    }
+}
+
+.content {
+    // if supported, override floated column layout with flexbox    
+    @include display-flex;
+    @include flex-direction(column); // columns for mobile
+    @include justify-content(space-between);
+    @include respond-to(large-screens) {
+        @include flex-direction(row); // rows for tabs & up
+        & + .content {
+            margin-top:1em;
+        }
+    }
+}
+
+// column classes. Half is 50%, Third 33%, TwoThirds 66%..... such wows...
+.third {
+    min-height: 2em;
+    width:100%;
+    margin-bottom: 2em;
+    background-color: #eee;
+    @include respond-to(large-screens) {
+        float:left;
+        margin:0 1%;
+        width:32%;
+        &:first-child {
+            margin-left:0;
+        }
+        &:last-child, & + .third + .third {
+            margin-right:0;
+        }
+    }
+    .two-third + & {
+        @include respond-to(large-screens) {
+            margin-right:0;
+        }
+    }
+}
+
+.two-third {
+    min-height: 2em;
+    width:100%;
+    margin-bottom: 2em;
+    background-color: #eee;
+    @include respond-to(large-screens) {
+        float:left;
+        margin:0 1% 0 0;
+        width:66%;
+        &:first-child {
+            margin-left:0;
+        }
+        &:last-child, & + .third + .third {
+            margin-right:0;
+        }
+    }
+    .third + & {
+        @include respond-to(large-screens) {
+            margin:0 0 0 1%;
+        }
+    }
+}
+
+.half {
+    min-height: 2em;
+    margin-bottom: 2em;
+    background-color: #eee;
+    @include respond-to(large-screens) {
+        float:left;
+        margin:0 1% 0 0;
+        width:49%;
+        & + .half {
+            margin: 0 0 0 1%;
+        }
+    }
 }
 
 footer {
     .inner-wrap {
         @include respond-to(medium-screens) {
-            display: flex;
-            justify-content: flex-start;
-            align-items:stretch;
+            @include display-flex;
+            //@include justify-content(space-between);
+            @include align-items(stretch);
+            @include flex-wrap(wrap);
         }
     }
 }
 
 .footer-block {
+    background-color: transparent!important;
     @include respond-to(medium-screens) {
         float:left;
-        width:46%;
-        margin-right:2%;
-
-
+        width:49%;
+        //margin:0 1%;
+        margin-left:1%;
+        margin-right:1%;
+        &:first-child {
+            margin-left:0;
+            & + .footer-block {
+                margin-right:0;
+            }
+            & + .footer-block + .footer-block {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+        }
     }
     @include respond-to(large-screens) {
-        width:31%;
+        //margin: 0 1%;
+        width: 32%;
+        &:first-child {
+            margin-left:0;
+            & + .footer-block {
+                margin-right:1%;
+            }
+            & + .footer-block + .footer-block {
+                margin:0 0 0 1%;
+                width: 32%;
+            }
+        }
     }
+}
+
+
+.payoff, .payoff span {
+    position: absolute;
+}
+
+.payoff {
+    border-left: 44px solid #154273;
+    bottom: 0;
+    display: block;
+    font-family: "ROserif", arial;
+    height: 22px;
+    left: 50%;
+    margin: 0 0 0 -22px;
+    padding: 0 0 0 1em;
+    top: auto;
+    width: 175px;
 }
 
 .comments {

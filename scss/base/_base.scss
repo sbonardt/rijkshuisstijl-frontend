@@ -22,6 +22,7 @@ $errorColour: #e32118;
 $succesColour: #0a0;
 $black: #222;
 $grey: #ccc;
+$lightGrey: #f3f3f3;
 $white: #fff;
 
 /* Media Query Breakpoints */
@@ -196,3 +197,5 @@ $old-ie: false !default;
     clear: both;
   }
 }
+
+@import "compass/css3/";
