@@ -16,9 +16,10 @@ jQuery(function ($) {
     // MENU CONFIG
     // set toggleableMenu to true if the menu needs to be toggled on or off on 
     // small screens, or 'false' if constantly want to show the mainmenu
-    var toggleableMenu = true;
+    var toggleableMenu = false;
     if (toggleableMenu) {
         $('html').addClass("toggleable-menu");
+        $('.toggle-menu').prepend("<span></span>");
     }
 
     // initial checks for page setup. Checks the viewport width and does some 
@@ -102,6 +103,7 @@ jQuery(function ($) {
                 $("nav .menu").hide();
                  $(".toggle-menu").show();
             }
+            $(".expanded").removeClass("expanded");
         }
         else {
             // $(".search").show();
@@ -114,6 +116,7 @@ jQuery(function ($) {
         if (windowWidthEms < breakLarge) {
             $(".search").hide();
             $(".toggle-search").show(); 
+            $(".toggle-active").removeClass("toggle-active");
         }
         else {
             $(".search").show();

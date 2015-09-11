@@ -110,6 +110,7 @@ blockquote {
 ul {
     padding:0;
     margin:0;
+    list-style: none;
     li {
         padding:0;
         margin:0;
@@ -118,10 +119,17 @@ ul {
 
 a, a:link, a:visited {
     color:$baseLinkColour;
+    footer & {
+        color:$black;
+        text-decoration:none;
+    }
 }
 
 a:hover, a:active, a:focus {
     text-decoration:none;
+    footer & {
+        text-decoration:underline;
+    }
 }
 
 .btn {
@@ -131,9 +139,20 @@ a:hover, a:active, a:focus {
 }
 
 main, footer, .highlighted {
-    p, ul, ol, a, pre, cite, blockquote, table {
+    p, ul, ol, pre, cite, blockquote, table {
         margin:0 0 1.5em 0;
-        @include font-size(0.9375);
+        // @include font-size(0.9375);
+    }
+    .intro {
+        @include font-size(1.125);
+        .overview-page & {
+            @include respond-to(medium-screens) {
+                max-width:80%;
+            }
+            @include respond-to(large-screens) {
+                max-width:66%;
+            }
+        }
     }
     ol {
         counter-reset:li; /* Initiate a counter */
@@ -162,9 +181,6 @@ main, footer, .highlighted {
     }
     ol ol li:last-child {
         margin-bottom:0;
-    }
-    ul {
-        padding-left:1em;
     }
 }
 

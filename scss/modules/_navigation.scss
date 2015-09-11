@@ -1,0 +1,335 @@
+/**
+ * File:        _navigation.scss
+ * Description: _navigation.scss for website navigation, mobile-menu and search togglers and breadcrumb
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+.toggle-btn-wrap {
+    float:right;
+    .toggleable-menu & {
+        overflow:hidden;
+        float:none;
+        width:100%;
+        @include respond-to(medium-screens) {
+            float:right;
+            width:auto;
+        }
+    }
+}
+.toggle-menu, .toggle-search {
+    font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+    font-weight: bold;
+    &:link, &:visited {
+        color:$baseSecondThemeColour;
+        text-decoration: none;
+    }
+    &:hover, &:active, &.toggle-active {
+        background-color: $baseSecondThemeColour;
+        color:$baseFirstThemeColour;
+    }
+}
+
+.toggle-menu {
+    float:left;
+    display:none;
+    height:30px;
+    margin-right:1em;
+    padding: 0.25em 0.5em 0.25em 1.5em;
+    padding: 4px 8px 4px 24px;
+    position: relative;
+    &:hover, &:active, &.toggle-active {
+        background-color: transparent;
+        color:$baseSecondThemeColour;
+    }
+    
+    span {
+      display: block;
+      position: absolute;
+      top: 11px;
+      left: 11px;
+      width:10px;
+      height: 1px;
+      background: darken($baseSecondThemeColour, 5%);
+      &:before, &:after {
+            position: absolute;
+            display: block;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: darken($baseSecondThemeColour, 5%);
+            content: "";
+            transition-duration: 0.1s, 0.1s;
+            transition-delay: 0.1s, 0s;
+      }
+      &:before {
+         top: 3px;
+         transition-property: top, transform;
+      }
+      &:after {
+        bottom: -6px;
+        transition-property: bottom, transform;
+      }
+    }
+    &:hover, &.toggle-active {
+        span {
+            background: darken($baseSecondThemeColour, 3%);
+            &:before, &:after {
+                background-color: darken($baseSecondThemeColour, 3%);
+            }
+        }
+    }
+
+    /* active state, i.e. menu open */
+    &.toggle-active span {
+        background: none;
+        height: 2px;
+        &:before {
+          top: 3px;
+          transform: rotate(45deg);
+          transition-delay: 0s, 0.3s;
+          height: 2px;
+        }
+        &:after {
+          bottom: -3px;
+          transform: rotate(-45deg);
+          transition-delay: 0s, 0.3s;
+          height: 2px;
+        }
+    }
+
+    @include respond-to(medium-screens) {
+        display:none;
+    }
+}
+
+.toggle-search {
+    float:right;
+    display:none;
+    padding: 0.4em 0.5em 0.55em;
+    width:80px;
+    &:hover, &:active, &.toggle-active {
+        background-color: $baseSecondThemeColour;
+        color:$baseFirstThemeColour;
+
+    }
+    &:before {
+        content: "▸";
+        margin-right: 0.3em;
+    }
+    &.toggle-active {
+        &:before {
+            content: "▾";
+        }
+    }
+    .toggleable-menu & {
+        height:30px;
+        padding: 0.25em 0.5em;
+        @include respond-to(medium-screens) {
+            height:auto;
+            padding: 0.4em 0.5em 0.55em;
+            margin-right:0;
+        }
+    }
+    @include respond-to(medium-screens) {
+        display:none;
+        margin-right:0.625em;
+    }
+}
+
+nav {
+    background-color:$baseFirstThemeColour;
+    padding-top:0.5em;
+    border-bottom:10px solid $baseSecondThemeColour;
+    @include respond-to(large-screens) {
+        padding-top:0.65em;
+    }
+    .inner-wrap {
+        padding:0;
+    }
+    .menu {
+        float:left;
+        width:calc(100% - 90px);
+        li {
+            padding:0 0.1rem 0 0;
+            &:before {
+                content:"";
+            }
+        }
+        @include respond-to(large-screens) {
+            width: calc(100% - 290px);
+            // margin-left:0.625em;
+        }
+    }
+    ul {
+        // border-top:00px solid $baseSecondThemeColour;
+        // background-color: $baseSecondThemeColour;
+        padding:0 0 0 0.625em;
+        overflow:hidden;        
+    
+        li {
+            list-style: none;
+            float: left;
+            @include respond-to(medium-screens) {
+                padding-right:0.1rem;
+            }
+            a {
+                padding:0.5em 0.75em; 
+                display:block;
+                font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
+                @include respond-to(large-screens) {
+                    padding:0.55em 0.75em 0.75em;
+                }
+                &:link, &:visited {
+                    color:$baseSecondThemeColour;
+                    text-decoration: none;
+                }
+                &:hover, &:active, &.active {
+                    background-color: $baseSecondThemeColour;
+                    color:$baseFirstThemeColour;
+                }
+            }    
+        }
+    }
+
+    .toggleable-menu & {
+        float:left;
+        width:100%;
+        .menu {
+            float:left;
+            width:100%;
+            padding:0;
+            @include respond-to(medium-screens) {
+                //float:none;
+                width:calc(100% - 90px);
+                padding-left: 0.625em;
+            }
+            @include respond-to(large-screens) {
+                //float:none;
+                width:calc(100% - 280px);
+            }
+        }
+        li {
+            float:none;  
+            padding-right:0;
+            @include respond-to(medium-screens) {
+                padding-right:0.1em;
+            }
+            a {
+                padding:0.5em;
+            }
+        }
+        @include respond-to(medium-screens) {
+            li {
+                float:left;
+                a {
+                    padding:0.5em 0.75em;
+                }
+            }
+        }
+        @include respond-to(large-screens) {
+            li a {
+                padding:0.55em 0.75em 0.75em;
+            }
+        }
+    }
+}
+
+
+.menu {        
+    li {  
+        position: relative;
+        padding: 0.1rem 1rem;
+        &:before {
+            content: "› ";
+            left: 0.25rem;
+            position: absolute;
+        }            
+    }        
+}
+
+.secondary-menu, .meta-menu {
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    @include respond-to(medium-screens) {
+        float:right;
+    }
+    @include respond-to(large-screens) {
+        position:absolute;
+        bottom:0;
+        right:0;
+        left:auto;
+        top:auto;
+    }
+    li {
+        list-style: none;
+        float:left;
+        a {
+            padding:0.5em; 
+            display:block; 
+        }    
+    }
+}
+
+ul.sub-menu {
+    padding:0.75rem;
+    margin:0.25rem -0.625rem 1.25rem;
+    background-color:$lightGrey;
+    @include respond-to(large-screens) {
+        margin:0.25rem 0 1.25rem;
+    }
+    li {
+        padding:0;
+        a {
+            padding:0.5rem 1rem;
+            &.active {
+                background-color:$baseSecondThemeColour;
+            }
+        }
+        &:before {            
+            top: 0.5rem;
+        }
+    }
+    ul {
+        margin-top:0;
+        margin-bottom:0.5rem;
+        li {
+            a {
+                padding-left:1.5rem;
+                //padding:0.25rem 1rem 0.25rem 1.5rem;
+            }
+            &:before {      
+                content:"";     
+                //left:1rem;
+            }
+        }
+    }
+    a {
+        padding:0.5rem;
+        display:block;
+        &:link, &:visited {
+
+        }
+        &:hover, &:active, &:focus {
+            background-color:$white;
+        }
+    }
+}
+
+.breadcrumb {
+    padding: 1.75rem 0;
+    //background-color: $baseSecondThemeColour;
+    width: 100%;
+    a {
+        @include font-size(0.875);
+        font-family: 'ROSans', Arial;
+        padding-right: 1em;
+        position:relative;
+        &:after {
+            content: "› ";
+            right: 0.25em;
+            position: absolute;
+        }
+    }
+}
