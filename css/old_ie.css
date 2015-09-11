@@ -1020,13 +1020,16 @@ body > footer {
   justify-content: space-between;
   -webkit-flex-direction: row;
   flex-direction: row;
+  display: block;
+  display: block;
 }
-/* line 234, ../scss/modules/_layout.scss */
+/* line 235, ../scss/modules/_layout.scss */
 .content + .content {
   margin-top: 1rem;
+  display: block;
 }
 
-/* line 241, ../scss/modules/_layout.scss */
+/* line 246, ../scss/modules/_layout.scss */
 .third {
   min-height: 2rem;
   width: 100%;
@@ -1036,20 +1039,20 @@ body > footer {
   margin: 0 1%;
   width: 32%;
 }
-/* line 250, ../scss/modules/_layout.scss */
+/* line 255, ../scss/modules/_layout.scss */
 .third:first-child {
   margin-left: 0;
 }
-/* line 253, ../scss/modules/_layout.scss */
+/* line 258, ../scss/modules/_layout.scss */
 .third:last-child, .third + .third + .third {
   margin-right: 0;
 }
-/* line 257, ../scss/modules/_layout.scss */
+/* line 262, ../scss/modules/_layout.scss */
 .two-third + .third {
   margin-right: 0;
 }
 
-/* line 264, ../scss/modules/_layout.scss */
+/* line 269, ../scss/modules/_layout.scss */
 .two-third {
   min-height: 2em;
   width: 100%;
@@ -1059,20 +1062,20 @@ body > footer {
   margin: 0 1% 0 0;
   width: 66%;
 }
-/* line 273, ../scss/modules/_layout.scss */
+/* line 278, ../scss/modules/_layout.scss */
 .two-third:first-child {
   margin-left: 0;
 }
-/* line 276, ../scss/modules/_layout.scss */
+/* line 281, ../scss/modules/_layout.scss */
 .two-third:last-child, .two-third + .third + .third {
   margin-right: 0;
 }
-/* line 280, ../scss/modules/_layout.scss */
+/* line 285, ../scss/modules/_layout.scss */
 .third + .two-third {
   margin: 0 0 0 1%;
 }
 
-/* line 287, ../scss/modules/_layout.scss */
+/* line 292, ../scss/modules/_layout.scss */
 .half {
   min-height: 2rem;
   margin-bottom: 2rem;
@@ -1081,12 +1084,12 @@ body > footer {
   margin: 0 1% 0 0;
   width: 49%;
 }
-/* line 295, ../scss/modules/_layout.scss */
+/* line 300, ../scss/modules/_layout.scss */
 .half + .half {
   margin: 0 0 0 1%;
 }
 
-/* line 302, ../scss/modules/_layout.scss */
+/* line 307, ../scss/modules/_layout.scss */
 footer .inner-wrap {
   display: -webkit-flex;
   display: flex;
@@ -1096,7 +1099,7 @@ footer .inner-wrap {
   flex-wrap: wrap;
 }
 
-/* line 312, ../scss/modules/_layout.scss */
+/* line 317, ../scss/modules/_layout.scss */
 .footer-block {
   background-color: transparent !important;
   float: left;
@@ -1106,40 +1109,40 @@ footer .inner-wrap {
   margin-right: 1%;
   width: 32%;
 }
-/* line 321, ../scss/modules/_layout.scss */
+/* line 326, ../scss/modules/_layout.scss */
 .footer-block:first-child {
   margin-left: 0;
 }
-/* line 323, ../scss/modules/_layout.scss */
+/* line 328, ../scss/modules/_layout.scss */
 .footer-block:first-child + .footer-block {
   margin-right: 0;
 }
-/* line 326, ../scss/modules/_layout.scss */
+/* line 331, ../scss/modules/_layout.scss */
 .footer-block:first-child + .footer-block + .footer-block {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
 }
-/* line 336, ../scss/modules/_layout.scss */
+/* line 341, ../scss/modules/_layout.scss */
 .footer-block:first-child {
   margin-left: 0;
 }
-/* line 338, ../scss/modules/_layout.scss */
+/* line 343, ../scss/modules/_layout.scss */
 .footer-block:first-child + .footer-block {
   margin-right: 1%;
 }
-/* line 341, ../scss/modules/_layout.scss */
+/* line 346, ../scss/modules/_layout.scss */
 .footer-block:first-child + .footer-block + .footer-block {
   margin: 0 0 0 1%;
   width: 32%;
 }
 
-/* line 350, ../scss/modules/_layout.scss */
+/* line 355, ../scss/modules/_layout.scss */
 .payoff, .payoff span {
   position: absolute;
 }
 
-/* line 354, ../scss/modules/_layout.scss */
+/* line 359, ../scss/modules/_layout.scss */
 .payoff {
   border-left: 44px solid #154273;
   bottom: 0;

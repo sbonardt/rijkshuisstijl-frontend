@@ -191,7 +191,7 @@ body {
 .main-content {
     position:relative;
     > header, .heading {
-        padding:1rem 0 0;
+        padding: 1rem 0 0;
         .overview-page & {
             background-color: $baseSecondThemeColour;
             margin-bottom:2rem;
@@ -231,9 +231,14 @@ body {
     @include justify-content(space-between);
     @include respond-to(large-screens) {
         @include flex-direction(row); // rows for tabs & up
+        display: block;
         & + .content {
             margin-top:1rem;
+            display: block;
         }
+    }
+    @include respond-to(xlarge-screens) {
+        display: block;
     }
 }
 
