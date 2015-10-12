@@ -1,0 +1,14 @@
+{% if record.taxonomy is defined and record.taxonomy is not empty %}    
+    {% for type, values in record.taxonomy %}
+        <ul class="taglist">
+        {% for link, value in values %}
+            <li>
+                <span class="tag">{{ value }}</span>
+            </li>
+        {% else %}
+            {{ __('none') }}
+        {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+

@@ -4,12 +4,15 @@
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
  
-// set $old-ie to true to incorporate old-ie styles
+/*
+ * set $old-ie to true to incorporate old-ie styles
+ */
 $old-ie: true;
 
-// set $fix-mqs value to the width you would like the css to be generated in
-// regards to the media queries. All css media queries up to this width will be
-// generated in the special old-ie stylesheet
+/* set $fix-mqs value to the width you would like the css to be generated in
+ * regards to the media queries. All css media queries up to this width will be
+ * generated in the special old-ie stylesheet
+ */
 $fix-mqs: 64; 
  
 @import "base/_base.scss";
@@ -17,6 +20,9 @@ $fix-mqs: 64;
 @import "modules/_overrides.scss";
 @import "modules/_defaults.scss";
 @import "modules/_layout.scss";
+@import "modules/_search.scss";
 @import "modules/_navigation.scss";
 @import "modules/_typography.scss";
 @import "modules/_forms.scss";
+@import "modules/_theme.scss";
+@import "modules/_print.scss";

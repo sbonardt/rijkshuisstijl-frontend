@@ -1,0 +1,93 @@
+{% include '_header.twig' %}
+<section class="main-content">
+            <a id="content" tabindex="0"></a>
+            <div class="heading">
+                <div class="inner-wrap">
+                    <h1>{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1> 
+
+                    {# if used for listing a taxonomy: #}
+                    {% if taxonomytype is defined %}
+                        <h1>
+                            {{ __('Overview for') }}
+                            {% if taxonomy.options[slug] is defined %}
+                                {{ taxonomy.options[slug] }}
+                            {% else %}
+                                {{ slug }}
+                            {% endif %}
+                        </h1>
+                        {# taxonomies are fetched unordered by design. If we specified an order in config.yml, sort them here: #}
+                        {% set records = records|order(app.config.get('general/listing_sort')) %}
+                    {% endif %}
+
+                    {# This is also the default template for searchresults. If 'search' is defined,
+                       we display an appropriate title. The 'records' array contains all of the
+                       records matching the current query. If there are no results, the
+                       code in the 'else' part of the for-loop is used. #}
+                    {% if search is defined %}
+                        <h1>
+                            {{ __('Search results for <i>"%search%"</i>', { '%search%': search|escape }) }}
+                        </h1>
+                    {% endif %}      
+                </div>
+            </div> 
+            
+            <div class="content inner-wrap">
+                <div class="column content-wrap"> 
+                    <ul class="search-results">
+                    {% for record in records %}
+                        <li>
+                            <article class="search-result">
+                                <a href="{{ record.link }}">                               
+                                    <h1 class="beta"><span class="type-icon">{{ record.contenttype.slug|slice(0, 1) }}</span><span>{{ record.title }}</span></h1>
+                                    {% if record.image!="" %}
+                                        <div class="large-4 imageholder">
+                                            <a href="{{ image(record.image) }}">
+                                                <img src="{{ thumbnail(record.image, 400, 260) }}">
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {# display something introduction-like.. #}
+                                    {% if record.introduction %}
+                                        {{ record.introduction }}
+                                    {% elseif record.teaser %}
+                                        {{ record.teaser }}
+                                    {% else %}
+                                        <p>{{ record.excerpt(175) }}</p>
+                                    {% endif %}  
+                                    {% include '_sub_taxonomylinks.twig' with {'record': record} %} 
+                                </a>
+                            </article>
+                        </li>
+                    {% else %}
+                        <li>
+                            <article>
+                                {% if search is defined %}
+
+                                    <p>
+                                        {{ __("No results found for '%search%'. Please try another search.", { '%search%': search|escape }) }}
+                                    </p>
+
+                                {% else %}
+                                    <h2>{{ __("No content found.") }}</h2>
+                                    <p>
+                                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': paths.root} ) }}
+                                    </p>
+                                {% endif %}
+
+                                {#
+                                optionally, you can redirect the browser to another page. Just uncomment the next line to do so.
+                                {{ redirect('/') }}
+                                #}
+
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {# If there are more records than will fit on one page, the pager is shown. #}
+                {{ pager() }}
+
+                </div>
+                {% include '_aside.twig' %}
+            </div>
+         </section>
+{% include '_footer.twig' %}

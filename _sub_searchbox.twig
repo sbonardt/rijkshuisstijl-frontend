@@ -1,0 +1,8 @@
+<form method="get" action="{{ paths.root }}search" enctype="text/plain" class="{{ class }}">
+    <div>
+        <label for="search_field">Zoek op trefwoord binnen Iv3</label>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dempta enim aeternitate nihilo beatior Iuppiter quam Epicurus</p>
+        <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" id="search_field" name="search" class="search_field">
+        <button type="submit" value="search">zoeken</button>  
+    </div>
+</form>

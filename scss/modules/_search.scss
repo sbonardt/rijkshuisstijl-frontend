@@ -1,0 +1,82 @@
+// search block styling
+.search {
+    padding:1.25rem 0.625rem 1rem 0.625rem;
+    overflow:hidden;
+    max-width:480px;
+    display:block;
+    background-color:$baseSecondThemeColour;
+    clear:both;
+    @include respond-to(small-screens) {
+         width:100%;
+         float:left;
+         max-width: none;
+    }
+    @include respond-to(large-screens) {
+        margin:0 0.625rem 0 0;
+        float:right;
+        padding:0;
+        width: 29.5%;
+        clear:none;
+    }
+    // .toggleable-menu & {
+    //     @include respond-to(large-screens) {
+    //         margin:0 0.625rem 0 0;
+    //     }
+    // }
+    > div {
+        // float:right;
+        // width:auto;
+        @include respond-to(medium-screens) {
+            float:right;
+            width:100%;
+        }
+    }
+    label, p {
+        display:none;
+        clear:both;
+    }
+    [type="submit"] {
+        padding:0 0.75rem;
+        border-left:0;
+        width:70px;
+        background-color:$baseFirstThemeColour;
+        font-family: "ROSans", "arial", serif;
+        font-weight:400;
+        color:$baseSecondThemeColour;
+        @include respond-to(large-screens) {
+            background-color:$baseSecondThemeColour;
+            color:$baseFirstThemeColour;
+        }
+        &:hover, &:active, &:focus {
+            background-color:lighten($baseFirstThemeColour, 10%);
+            @include respond-to(large-screens) {
+                background-color:darken($baseSecondThemeColour, 5%);
+            }
+        }
+    }
+    [type="text"], [type="search"] {        
+        font-family: "ROSans", "arial", serif;
+    }
+    [type="search"] {
+        box-sizing: border-box;
+    }
+    input, button {
+        border:0;
+        height:30px;
+        float:left;
+        width:calc(100% - 71px);
+        padding-left:0.5rem;
+    }
+}
+
+.type-icon {
+    @include border-radius(50px);
+    height:50px;
+    width:50px;
+    padding:0.5rem 0 1rem 0;
+    display:inline-block;
+    text-align:center;
+    background-color: $baseSecondThemeColour;
+    color:$baseFirstThemeColour;
+    margin-right:0.75rem;
+}
