@@ -1,0 +1,77 @@
+<!-- Sidebar -->
+
+<aside class="third">
+
+  {% if record.contenttype.slug in ["functies", "taakvelden", "lasten-categorieen", "baten-categorieen", "balansstanden-activa", "balansstanden-passiva" ] %}
+  {# {% if record.contenttype.slug in ["sections"] and record.taxonomy.chapters is defined %} #}
+      {# {% setcontent subitems = record.contenttype.slug where { chapters : record.taxonomy.chapters|first } %} #}
+      {% setcontent subitems = record.contenttype.slug %}
+      {% set subitems = []|merge(subitems) %}
+      <ul class="menu sub-menu">
+      {% set currentOnderdeel = false %}
+      {% for item in subitems %}
+          {% if item.sectiontype|lower != "hoofdonderdeel" %}
+              {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
+                </ul></li>
+              {% elseif not loop.first %}                
+                </li>
+              {% endif %}
+
+              {% set active = '' %}
+              {% set activeTrail = '' %}
+              {% if item.slug == app.request.get('slug') %}{% set active = ' active' %}{% endif %}
+
+              {% if item.sectiontype|lower != "artikel" %}
+                {% set searchordernumber = item.ordernumber|slice(0, item.ordernumber|length - 2) %}
+                 {% set recordordernumber = record.ordernumber|slice(0, record.ordernumber|length - 2) %}
+                 {% if searchordernumber == recordordernumber %}
+                  {% set activeTrail = ' active-trail' %}
+                 {% endif %}               
+              {% endif %}
+
+              <li class="{{ item.sectiontype|lower }}">
+                {# <small>{{ loop.index0 }} - {{ item.sectiontype|lower }}</small> #}
+                <a href="{{ item.link }}" class="{{active}}">{{ item.title }}</a>
+
+              {% if item.sectiontype|lower != "artikel" and (subitems[loop.index0 + 1].sectiontype|lower == "artikel" or loop.first) %}
+                <ul class="sections-menu-sub-menu{{activeTrail}}">
+              {% endif %}
+          {% endif %}
+      {% endfor %}
+      </ul>
+  {% endif %}
+
+  {% if record.slug in ["document", "download" ] %}
+      <a href="#" id="downloadBtn" class="btn btn--large" role="button"><span>Download Iv3 PDF document</span><span class="btn__subtext">Iv3 officiële versie 01-01-2015,  (278Kb)</span></a>
+      <a href="#" id="printBtn" class="btn btn--large" role="button"><span>Print document</span><span class="btn__subtext">up-to-date website versie</span></a>
+  {% endif %}
+
+
+{#     
+    {% if record.contenttype.slug == "sections" and record.taxonomy.chapters is defined %}
+        {% setcontent subitems = 'sections' where { chapters : record.taxonomy.chapters|first } %}
+            <ul class="sections-menu">
+            {% set currentOnderdeelID = false %}
+
+            {% for item in subitems %}
+                {% if item.sectiontype|lower != "hoofdonderdeel" %}
+                <li class="{{ item.sectiontype|lower }}">
+                {{ item.title }}
+                </li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+    {% endif %} #}
+
+    {# The next section iterates over all of the contenttypes, and prints a list
+       of the five latest records of each of them. The 'magic' happens in the
+       setcontent tag.. ct.slug ~ "/latest/5" contatenates the slug ot the
+       contenttype with /latest/5, so it becomes something like "pages/latest/5".
+       The 'else' in the inner for-loop is only used if there are no 'records',
+       so we can use it to print a helpful message.
+       Lastly, "{{ paths.root }}{{ct.slug}}" will output something like '/pages',
+       effectively creating a working link to that contenttpye's listing page.#}
+
+</aside>
+
+<!-- End Sidebar -->

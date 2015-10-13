@@ -1,0 +1,97 @@
+{% include '_header.twig' %}
+        <div class="breadcrumb">
+            <div class="inner-wrap">
+                <a href="/">Home</a>
+                <a href="/{{app.request.attributes.get("contenttypeslug")}}">{{ app.request.attributes.get("contenttypeslug")|capitalize|replace({"-" : " "}) }}</a>
+            </div>
+        </div>
+        <section class="main-content">
+            <a id="content" tabindex="0"></a>
+            <div class="heading">
+                <div class="inner-wrap">
+                    {% if app.request.attributes.get("_route") == "contentlisting" %}
+                        {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
+                    {% endif %}
+                    <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1> 
+
+                    {# if used for listing a taxonomy: #}
+                    {% if taxonomytype is defined %}
+                        <h1>
+                            {{ __('Overview for') }}
+                            {% if taxonomy.options[slug] is defined %}
+                                {{ taxonomy.options[slug] }}
+                            {% else %}
+                                {{ slug }}
+                            {% endif %}
+                        </h1>
+                        {# taxonomies are fetched unordered by design. If we specified an order in config.yml, sort them here: #}
+                        {% set records = records|order(app.config.get('general/listing_sort')) %}
+                    {% endif %}
+
+                    {# This is also the default template for searchresults. If 'search' is defined,
+                       we display an appropriate title. The 'records' array contains all of the
+                       records matching the current query. If there are no results, the
+                       code in the 'else' part of the for-loop is used. #}
+                    {% if search is defined %}
+                        <h1>
+                            {{ __('Search results for <i>"%search%"</i>', { '%search%': search|escape }) }}
+                        </h1>
+                    {% endif %}      
+                </div>
+            </div> 
+            
+            <div class="content inner-wrap">
+                <div class="column content-wrap"> 
+
+                    {% if app.request.attributes.get("_route") == "contentlisting" %}
+                        
+                        {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
+                        {{ record.body }}
+
+
+                        {% setcontent subitems = app.request.attributes.get("contenttypeslug") %}
+                        {# {% if record.contenttype.slug in ["sections"] and record.taxonomy.chapters is defined %} #}
+                          {# {% setcontent subitems = record.contenttype.slug where { chapters : record.taxonomy.chapters|first } %} #}
+                          
+                          {% set subitems = []|merge(subitems) %}
+                          <ul class="">
+                          {% set currentOnderdeel = false %}
+                          {% for item in subitems %}
+                              {% if item.sectiontype|lower != "hoofdonderdeel" %}
+                                  {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
+                                    </ul></li>
+                                  {% else %}
+                                    </li>
+                                  {% endif %}
+
+                                  {% set active = '' %}
+                                  {% set activeTrail = '' %}
+                                  {% if item.slug == app.request.get('slug') %}{% set active = ' active' %}{% endif %}
+
+                                  {% if item.sectiontype|lower != "artikel" %}
+                                    {% set searchordernumber = item.ordernumber|slice(0, item.ordernumber|length - 2) %}
+                                     {% set recordordernumber = record.ordernumber|slice(0, record.ordernumber|length - 2) %}
+                                     {% if searchordernumber == recordordernumber %}
+                                      {% set activeTrail = ' active-trail' %}
+                                     {% endif %}               
+                                  {% endif %}
+
+                                  <li class="{{ item.sectiontype|lower }}">
+                                    {# <small>{{ loop.index0 }} - {{ item.sectiontype|lower }}</small> #}
+                                    {% if item.sectiontype|lower == "onderdeel" %}<h3>{{ item.title }}</h3>{% endif %}
+                                    {% if item.sectiontype|lower == "artikel" %}{{ item.title }}{% endif %}
+                                    
+
+                                  {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 + 1].sectiontype|lower == "artikel" %}
+                                    <ul class="sections-menu-sub-menu{{activeTrail}}">
+                                  {% endif %}
+                              {% endif %}
+                          {% endfor %}
+                          </ul>
+                    {% endif %}
+
+                </div>
+                {% include '_aside.twig' %}
+            </div>
+         </section>
+{% include '_footer.twig' %}

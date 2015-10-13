@@ -143,8 +143,17 @@ nav {
     @include respond-to(large-screens) {
         padding-top:0.65em;
     }
+    // to show on hover sub ul's
+    @include respond-to(xlarge-screens) {
+        position: relative;
+        z-index:2;
+    }
     .inner-wrap {
         padding:0;
+        // to show on hover sub ul's
+        @include respond-to(xlarge-screens) {
+            overflow:visible;
+        }
     }
     .menu {
         float:left;
@@ -162,32 +171,65 @@ nav {
     }
     ul {
         // border-top:00px solid $baseSecondThemeColour;
-        // background-color: $baseSecondThemeColour;
+        background-color: $baseFirstThemeColour;
         padding:0 0 0 0.625em;
-        overflow:hidden;        
-    
+        overflow:hidden;         
+        // to show on hover sub ul's
+        @include respond-to(xlarge-screens) {
+            overflow:visible;
+        }
         li {
             list-style: none;
             float: left;
             @include respond-to(medium-screens) {
                 padding-right:0.1rem;
             }
+            @include respond-to(xlarge-screens) {
+                &:hover {
+                    ul {
+                        display:block;
+                    }
+                }
+            }
             a {
                 padding:0.5em 0.75em; 
                 display:block;
                 font-family: 'ROSansBold', 'Droid Sans', Arial, Sans-serif;
                 @include respond-to(large-screens) {
-                    padding:0.55em 0.75em 0.75em;
+                    padding:0.65em 0.75em 0.6em;
                 }
                 &:link, &:visited {
                     color:$baseSecondThemeColour;
                     text-decoration: none;
                 }
-                &:hover, &:active, &.active {
+                &:hover, &:active, &.active, &:focus {
                     background-color: $baseSecondThemeColour;
                     color:$baseFirstThemeColour;
                 }
-            }    
+                // when we have placeholder menu items to group sub items give 
+                // them a class menu-holder / placeholder and hide on mobile
+                // show on desktops
+                &.menu-holder, &.submenu-placeholder {
+                    display:none;
+                    @include respond-to(xlarge-screens) {
+                        cursor: default;
+                        display:block;
+                        &:focus {
+                            &+ul.dropdown {
+                                display:block;
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+        ul {
+            padding:0;
+            @include respond-to(xlarge-screens) {
+                display:none;
+                position: absolute;
+                z-index:2;
+            }
         }
     }
 
@@ -200,19 +242,19 @@ nav {
             padding:0;
             @include respond-to(medium-screens) {
                 //float:none;
+                //width minus toggle button width
                 width:calc(100% - 90px);
                 padding-left: 0.625em;
             }
             @include respond-to(large-screens) {
-                //float:none;
-                width:calc(100% - 280px);
+                width:66%;
             }
         }
         li {
             float:none;  
             padding-right:0;
             @include respond-to(medium-screens) {
-                padding-right:0.1em;
+                //margin-right:0.1em;
             }
             a {
                 padding:0.5em;
@@ -228,7 +270,7 @@ nav {
         }
         @include respond-to(large-screens) {
             li a {
-                padding:0.55em 0.75em 0.75em;
+                padding:0.65em 0.75em 0.6em;
             }
         }
     }
@@ -270,7 +312,7 @@ nav {
 
 ul.sub-menu {
     padding:0.75rem;
-    margin:0.25rem -0.625rem 1.25rem;
+    margin:0.25rem -0.625rem 2rem;
     background-color:$lightGrey;
     @include respond-to(large-screens) {
         margin:0.25rem 0 1.25rem;
@@ -290,6 +332,12 @@ ul.sub-menu {
     ul {
         margin-top:0;
         margin-bottom:0.5rem;
+        display: none;
+        
+            &.active-trail {
+                display: block;
+            }
+        
         li {
             a {
                 padding-left:1.5rem;
@@ -368,3 +416,4 @@ ul.sub-menu {
         }
     }
 }
+

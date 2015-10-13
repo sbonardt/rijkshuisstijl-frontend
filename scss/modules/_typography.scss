@@ -67,13 +67,14 @@ body {
 h1, h2, h3, h4, h5 {
     color:$baseFontHeaderColour;
     margin-top:0;
-    font-family: "ROSerifBold", "Georgia", serif;
+    font-family: "ROSansBold", serif;
     font-weight:400;
     font-style:normal;
 }
 
-h1 {
-    @include header-font-size(3em);
+h1, .alpha {
+    @include header-font-size(2);
+    margin-bottom:0.5em;
     .site-title & {
         @include header-font-size(1);
         margin-bottom:0;
@@ -84,27 +85,47 @@ h1 {
     }
 }
 
-h2 {
-    @include header-font-size(2.25em);
+h2, .beta {
+    @include header-font-size(1.75);
 }
 
-h3 {
-    @include header-font-size(1.75em);
+h3, .gamma {
+    @include header-font-size(1.5);
 }
 
-h4 {
-    @include header-font-size(1.125em);
+h4, .delta {
+    @include header-font-size(1.125);
 }
 
 h5 {
-    @include header-font-size(3em);
+    @include header-font-size(1);
+    font-family: 'ROSansBold';
 }
 
 blockquote {
     @include header-font-size(1.5);
     padding:1em;
-    background-color:$baseFirstThemeColour;
+    background-color:$baseSecondThemeColour;
     font-family: 'ROSans', 'Droid Sans', Arial, Sans-serif;
+    color:$black;
+}
+
+blockquote {
+  //border-left: 10px solid $baseFirstThemeColour;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: $baseFirstThemeColour;
+  content: open-quote;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }
 
 ul {
@@ -118,6 +139,7 @@ ul {
 }
 
 a, a:link, a:visited {
+    transition: all 80ms linear;
     color:$baseLinkColour;
     footer & {
         color:$black;
@@ -135,13 +157,54 @@ a:hover, a:active, a:focus {
 .btn {
     padding: 0.25em 0.5em;
     background-color: $baseFirstThemeColour;
-    border:1px solid $black;
+    border:0 solid $black;
+    display:block;
+    margin-bottom:1.5em;
+    //@include border-radius(3px);
+    &:link, &:visited {
+        color:$white;
+        text-decoration:none;
+
+        .btn__subtext {
+            text-decoration:none;
+        }
+    }
+    &:hover, &:active, &:focus {
+        text-decoration:underline;
+        background-color: darken($baseFirstThemeColour, 5%);
+    }
+    span {
+        clear:both;
+        display:block;
+    }
+    .btn__subtext {
+        display:inline-block;
+        @include font-size(0.875);
+        color:$lightGrey;
+    }
 }
 
+.btn--large {
+    //@extend .beta;
+    @include header-font-size(1.5);
+    line-height:1;
+    padding: 1rem 1.25rem;
+    &:link, &:visited {
+
+    }
+    &:hover, &:active, &:focus {
+
+    }
+}
+
+
 main, footer, .highlighted {
-    p, ul, ol, pre, cite, blockquote, table {
+    p, ul, ol, dl, pre, cite, blockquote, table {
         margin:0 0 1.5em 0;
         @include font-size(1);
+        @include respond-to(wide-screens) {
+            @include font-size(1.125);
+        }
     }
     .intro {
         @include font-size(1.125);
@@ -184,3 +247,26 @@ main, footer, .highlighted {
     }
 }
 
+
+.edit-link {
+    position: relative;
+    top:-0.65rem;
+    margin-left: 0.5rem;
+    a {
+        @include font-size(0.875);
+        text-transform: lowercase;
+        padding:0.1em 0.35em;
+        color:$black;
+        background-color:$lightGrey;
+        @include border-radius(5px);
+        border:1px solid $grey;
+        font-family: "ROSans";
+        &:link, &:visited {
+            text-decoration:none;
+        }
+        &:hover, &:active, &:focus {
+            background-color:$darkGrey;
+            color:$white;
+        }
+    }
+}

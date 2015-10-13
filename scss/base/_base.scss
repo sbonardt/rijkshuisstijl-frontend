@@ -8,7 +8,7 @@
  * Wesbite settings
  */
 $base-font-family: "ROSans", Verdana, Sans-serif;
-$site-max-width:80em;
+$site-max-width:70em;
 
 /* Theme colors */
 $baseFontColour:#222;
@@ -24,6 +24,7 @@ $succesColour: #0a0;
 $black: #222;
 $grey: #ccc;
 $lightGrey: #f3f3f3;
+$darkGrey: #555;
 $white: #fff;
 
 
@@ -37,7 +38,7 @@ $break-small: (481/16); //481px
 $break-medium:(600/16); //768px
 $break-large:(768/16); //768px
 $break-xlarge:(960/16); //1024px
-$break-wide: (1200/16); //1200px
+$break-wide: (1140/16); //1200px
 
 @mixin respond-to($media) {
     @if $media == small-screens {
