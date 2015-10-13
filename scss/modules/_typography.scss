@@ -139,6 +139,7 @@ ul {
 }
 
 a, a:link, a:visited {
+    transition: all 80ms linear;
     color:$baseLinkColour;
     footer & {
         color:$black;

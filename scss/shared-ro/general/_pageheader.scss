@@ -1,0 +1,65 @@
+/* -----------------------------------------------
+    PAGE HEADER AND DECORATIVE TOPIC IMAGE
+   -----------------------------------------------*/
+
+.header {
+	background: $mainbackgroundcolor;
+	padding: 5px 10px 0;
+}
+
+// Hide general topic imagery for small devices
+
+.decorative {
+	display: none;
+}
+.decorative img {
+	display: block;
+	width: 100%;
+}
+
+// But do show photo of minister or secretary of state on profile landing page 
+
+.profile .decorative {
+	display: block;
+	width: 40%;
+	min-width: 140px;
+	max-width: 220px;
+	height: auto;
+	float: left;
+	margin: 40px 20px 20px 10px;
+}
+
+#topic-home,
+.header h1{
+	display: block;
+	float: left;
+	padding: 0.2em 0 0.6em;
+	font: normal 1.833em/1.2 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+	text-decoration: none;
+}
+
+a#topic-home {
+	color: $primarylinkcolor;
+}
+
+a#topic-home:hover,
+a#topic-home:active {
+	text-decoration: none;
+}
+
+a#topic-home:hover span,
+a#topic-home:active span {
+	color: $secondarylinkcolor;
+	text-decoration: underline;
+}
+
+
+.header h1 em,
+#topic-home em,
+a#topic-home:hover em,
+a#topic-home:active em {
+	display: block;
+	color: #4E4E4E;
+	font-size: 0.818em;
+	line-height: 1.8;
+}

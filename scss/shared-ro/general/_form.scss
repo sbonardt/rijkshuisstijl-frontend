@@ -1,0 +1,488 @@
+/* -----------------------------------------------
+    FORM ELEMENTS
+   -----------------------------------------------*/
+
+label {
+	display: block;
+	position: relative;
+	margin: 0 0 0.4em;
+	font-size: 1.083em;
+	line-height: 1.5;
+}
+
+select {
+	padding: 0.33em 0;
+	-webkit-border-radius: 0; }
+
+input[type="text"],
+select {
+	width: 100%; 
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="text"],
+textarea {
+  -webkit-border-radius: 0;
+  -webkit-appearance: none; }
+
+input[type="text"],
+select,
+textarea {
+  border: 1px solid $darkermainbackground;
+  border-bottom: 2px solid $logocolor;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: block;
+  width: auto;
+  float: left;
+  margin: 0 20px 0 0;
+  padding: 0.4em 10px 0.6em;
+  border: 0;
+  background-color: $logocolor;
+  color: #FFF;
+  font-size: 1.083em;
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+textarea {
+	width: 100%;
+	height: 6em;
+	line-height: 1.5;
+}
+
+input[type="text"].autosize, select.autosize {
+	width:auto;
+}
+
+form h2 {
+	margin: 0.67em 0 0.13em;
+	color: #01689B;
+	font: normal 1.5em/1.2 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+}
+
+form h2.req {
+	margin: 0.67em 0 -0.67em;
+	padding-right: 6em;
+}
+
+form h2.form-divider {
+	border-top: 3px solid $darkermainbackground;
+	padding-top:0.8em;
+}
+
+.article form > p {
+	padding-left:10px;
+}
+
+form div p {
+	margin: 0 0 1.2em;
+}
+
+form p.req {
+	text-align: right;
+}
+
+fieldset {
+	padding-left: 10px;
+	background-color: $mainbackgroundcolor;
+	overflow: hidden; // Prevents margin collapsing in Chrome
+}
+
+fieldset div {
+	display: block;
+	position: relative;
+	margin: 1.2em 0 0;
+	padding-bottom: 5px;
+	overflow: hidden;
+}
+
+fieldset .field {
+	margin: 0;
+	padding: 0 10px 0 0;
+	min-height: 2.3333em; // 0.3 + 0.3 + 1.083em*1.8(lineheight)
+}
+// voor aow checker toegevoegd
+form td p{
+	margin-bottom: 1.2em;
+	line-height: 1.8;
+}
+
+form td p:last-child{
+	margin-bottom: 0;
+}
+
+.article form {
+	margin-left: -10px;
+
+	h2{
+		padding-left:10px;
+		margin-left:0; // maakt bovenstreep mogelijk tot begin kantlijn
+	}
+	
+}
+
+.navigation {
+	background-color: $mainbackgroundcolor;
+	margin: 0 0 3em;
+}
+
+.navigation div {
+	margin: 1.8em 0 0;
+	padding-bottom: 0;
+}
+
+.divider {
+	display: inline-block;
+	width: 15%;
+	max-width: 2em;
+	text-align: center;
+}
+
+/* FORM HINTS */
+
+.hint p,.hint ol,.hint ul  {
+	margin: 0;
+	padding-bottom: 0;
+	padding-right: 40px;
+	line-height: 1.5;
+	min-height:2.3333em; // ruimte voor x ernaast
+}
+
+.hint li {
+	line-height: 1.5;
+}
+
+.hint dl {
+	margin-bottom:0;
+}
+
+.hint h3 {
+	line-height: 1.5;
+}
+
+.js .fancy .hint { // Positioneer de hulptekst alleen uit beeld als js aan staat
+	position: absolute;
+	top: -100000px;
+}
+
+.fancy .field {
+	padding-right: 60px;
+}
+
+form a.open,
+form a.close {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0.27em 14px;
+	background: $logocolor;
+	color: #FFF;
+	font-size: 1.083em;
+	text-decoration: none;
+
+	// TODO: Choose an alternative focus indication, or leave standard browser behaviour intact.
+	//&:focus{
+	//	outline:none;
+	//}
+}
+
+form a.close {
+	top: 0;
+	z-index: 100;
+	padding-bottom: 0.4em;
+	font-size: 1em;
+	line-height: 1.8;
+}
+
+form a.open:focus,
+form a.open:hover,
+form a.close:focus,
+form a.close:hover {
+	color: #FFF;
+}
+
+.form .hint {
+	div {
+		padding: 0 30px 0 10px;
+		margin:0;
+	}
+	dt{
+		width: 9em;
+	}
+	dd{
+		margin-left: 9.9em;
+		line-height: 1.5;
+	}
+}
+
+
+/* -----------------------------------
+    radiobutton and checkboxes
+   ----------------------------------*/
+/* -----------------------------------
+    checklist / optionlist
+   ----------------------------------*/
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute; // Parent relatief positioneren dus.
+  left: 0;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0.25em 0 0 1px; // gelijk als toppadding van label
+  border: 2px solid $mainbackgroundcolor;
+}
+
+input[type="checkbox"] {
+	-webkit-border-radius: 0;
+	//top:-3px; // hide de check that is 3 px outside the bcheckbox
+}
+
+input[type="radio"] {
+	color:#01689B;
+	background-color: $mainbackgroundcolor;
+}
+
+.disabled + label {
+    cursor: default;
+    -moz-opacity: .4;
+    -webkit-opacity: .4;
+    opacity: .4;
+}
+
+
+// default structuur voor formulier fields met hint : fieldset ( > div > label + .field ) + .hint
+// default structuur voor checklists 
+.checklist,
+  .optionlist {
+
+    padding:1.2em 0 0.8em 10px;
+	position: relative;
+	
+	> div {
+		padding: 0;
+		margin:0;
+		overflow:visible; // toon vierkant rond input
+	}
+	.hint {
+		padding-left: 30px;
+	}
+
+	label{
+		color: $primarylinkcolor;
+		font-weight: bold;
+	}
+
+    div.field {
+       	padding: 0 60px 0 30px; // krijgt relative positie als hint er bij staat
+		overflow:visible;
+	}
+
+	input{
+		position: absolute;
+		left:0;
+		top:0;
+		//-webkit-transform: scale(1.2,1.2); // groter input voor safari
+	}
+	
+
+	// nested
+    .subchecklist {
+		padding-left:0;
+
+		div.field {
+			padding-right: 0;
+		}
+
+		label{
+			color: black;
+			font-weight: normal;
+		}
+		
+    }
+
+   	& + .navigation div{
+		padding-left:0;
+   	}
+}
+
+
+label.radio {
+    padding-left: 30px; // krijgt relative positie als hint er bij staat
+    position:relative;
+}
+
+label.inline-label {
+	float: none;
+	margin: 0 0 0.8em;
+	position:static;
+	display:inline;
+	width:auto;
+}
+
+label.radio.inline-label{
+	float:left; // label after checkbox or radio can have second inline label
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.radio-subfields {
+	margin: 0 0 0.8em 0;
+	
+	fieldset, .field { // container van subfield
+		margin: 0 0 0.8em 0;
+		padding: 0 10px 0.8em;
+	}
+}
+.article fieldset.radio-subfields {
+	padding-left: 30px;
+}
+
+span.radio-subfields {
+	padding: 0;
+	float: none;
+	display:inline;
+
+	label{ // voorheen inline-label second gewoon inline
+		position:static;
+		margin-top:0;
+	}
+
+}
+
+// label binnen een field geen bottom-margin nodig omdat field min-height heeft
+
+label.choice {
+	margin: 0 1em 0.8em 0;
+	width: auto;
+	float: left;
+	padding-top: 0.25em;
+	left: 0;
+	top: 0;
+	padding-left: 30px; // krijgt relative positie als hint er bij staat
+	position:relative;
+
+	input{
+		left:3px;
+		top:0px; //  overflow in fieldset cropped the border anders
+	}
+
+}
+
+
+/* SITEWIDE + FORM MESSAGES */
+.message, #site-message {
+	padding: 30px 10px 5px;
+	background-image: url(shared-ro/images/sprite-icons-messages.png);
+	background-repeat: no-repeat;
+	background-position: 10px 0;
+}
+.message.site {
+	max-width: 940px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+
+.message p {
+	margin: 0;
+}
+
+.message.error {
+	background-color: #F7D2DD;
+}
+.message.alert {
+	background-color: #FEF1BC;
+	background-position: -990px 0;
+}
+.message.info {
+	background-color: #C5F2B2;
+	background-position: -1990px 0;
+}
+.message.cookie {
+	padding-top: 5px;
+	background-image: none;
+	background-color: #EAEBEE;
+}
+.message.survey {
+	padding-bottom: 10px;
+}
+.message.survey p {
+	font: normal 1.25em/1.6 Arial,HelveticaNeue,Helvetica,Univers,sans-serif;
+}
+.message.survey p.invite {
+	font-weight: bold;
+}
+
+.message.survey a {
+	display: block;
+	float:right;
+	clear:right;
+	margin-left:10px;
+}
+
+.message.survey a[target=_blank]{
+	background-repeat:no-repeat;
+	background-image:url('shared-ro/images/sprites/inline.png');
+	background-position: 0 -163px;
+	padding-left: 13px;
+}
+
+.message.survey #survey-no{
+	float:right;
+}
+
+.message.error li {
+	background-position: -990px 0.75em;
+}
+
+fieldset .message,
+fieldset .hint {
+	min-height: 0;
+	margin-top: 0;
+}
+
+fieldset div.message.error, fieldset div.message.alert, fieldset div.message.info  {
+	display: block;
+	padding: 0 20px 0 30px;
+	background-color: transparent;
+	background-position: 0 0;
+}
+
+fieldset div.message.alert {
+	background-color:#FEF1BC;
+	background-position: -1000px 0;
+}
+
+fieldset div.message.info {
+	background-color: #C5F2B2;
+	background-position: -2000px 0;
+}
+
+fieldset .message.error p {
+	margin-top: 0;
+	padding: 0;
+}
+
+.error label {
+/* color: #CC003D; */
+}
+
+form .error {
+	padding-bottom: 0;
+}
+form .message.error {
+	padding-bottom: 5px; // Fix for large error messages.
+}
+
+.error input, .error textarea {
+	border-color: $error-light;
+	border-bottom-color: $error-color;
+}

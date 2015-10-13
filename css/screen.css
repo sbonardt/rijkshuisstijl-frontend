@@ -2019,24 +2019,25 @@ ul li {
 
 /* line 141, ../scss/modules/_typography.scss */
 a, a:link, a:visited {
+  transition: all 80ms linear;
   color: #14467b;
 }
-/* line 143, ../scss/modules/_typography.scss */
+/* line 144, ../scss/modules/_typography.scss */
 footer a, footer a:link, footer a:visited {
   color: #222;
   text-decoration: none;
 }
 
-/* line 149, ../scss/modules/_typography.scss */
+/* line 150, ../scss/modules/_typography.scss */
 a:hover, a:active, a:focus {
   text-decoration: none;
 }
-/* line 151, ../scss/modules/_typography.scss */
+/* line 152, ../scss/modules/_typography.scss */
 footer a:hover, footer a:active, footer a:focus {
   text-decoration: underline;
 }
 
-/* line 156, ../scss/modules/_typography.scss */
+/* line 157, ../scss/modules/_typography.scss */
 .btn {
   padding: 0.25em 0.5em;
   background-color: #154273;
@@ -2044,26 +2045,26 @@ footer a:hover, footer a:active, footer a:focus {
   display: block;
   margin-bottom: 1.5em;
 }
-/* line 163, ../scss/modules/_typography.scss */
+/* line 164, ../scss/modules/_typography.scss */
 .btn:link, .btn:visited {
   color: #fff;
   text-decoration: none;
 }
-/* line 167, ../scss/modules/_typography.scss */
+/* line 168, ../scss/modules/_typography.scss */
 .btn:link .btn__subtext, .btn:visited .btn__subtext {
   text-decoration: none;
 }
-/* line 171, ../scss/modules/_typography.scss */
+/* line 172, ../scss/modules/_typography.scss */
 .btn:hover, .btn:active, .btn:focus {
   text-decoration: underline;
   background-color: #11365d;
 }
-/* line 175, ../scss/modules/_typography.scss */
+/* line 176, ../scss/modules/_typography.scss */
 .btn span {
   clear: both;
   display: block;
 }
-/* line 179, ../scss/modules/_typography.scss */
+/* line 180, ../scss/modules/_typography.scss */
 .btn .btn__subtext {
   display: inline-block;
   font-size: 0.875rem;
@@ -2071,7 +2072,7 @@ footer a:hover, footer a:active, footer a:focus {
   color: #f3f3f3;
 }
 
-/* line 186, ../scss/modules/_typography.scss */
+/* line 187, ../scss/modules/_typography.scss */
 .btn--large {
   font-size: 1.5rem;
   line-height: 1.8rem;
@@ -2079,37 +2080,37 @@ footer a:hover, footer a:active, footer a:focus {
   padding: 1rem 1.25rem;
 }
 
-/* line 201, ../scss/modules/_typography.scss */
+/* line 202, ../scss/modules/_typography.scss */
 main p, main ul, main ol, main dl, main pre, main cite, main blockquote, main table, footer p, footer ul, footer ol, footer dl, footer pre, footer cite, footer blockquote, footer table, .highlighted p, .highlighted ul, .highlighted ol, .highlighted dl, .highlighted pre, .highlighted cite, .highlighted blockquote, .highlighted table {
   margin: 0 0 1.5em 0;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 @media only screen and (min-width: 71.25em) {
-  /* line 201, ../scss/modules/_typography.scss */
+  /* line 202, ../scss/modules/_typography.scss */
   main p, main ul, main ol, main dl, main pre, main cite, main blockquote, main table, footer p, footer ul, footer ol, footer dl, footer pre, footer cite, footer blockquote, footer table, .highlighted p, .highlighted ul, .highlighted ol, .highlighted dl, .highlighted pre, .highlighted cite, .highlighted blockquote, .highlighted table {
     font-size: 1.125rem;
     line-height: 1.6875rem;
   }
 }
-/* line 208, ../scss/modules/_typography.scss */
+/* line 209, ../scss/modules/_typography.scss */
 main .intro, footer .intro, .highlighted .intro {
   font-size: 1.125rem;
   line-height: 1.6875rem;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 210, ../scss/modules/_typography.scss */
+  /* line 211, ../scss/modules/_typography.scss */
   .overview-page main .intro, .overview-page footer .intro, .overview-page .highlighted .intro {
     max-width: 80%;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 210, ../scss/modules/_typography.scss */
+  /* line 211, ../scss/modules/_typography.scss */
   .overview-page main .intro, .overview-page footer .intro, .overview-page .highlighted .intro {
     max-width: 66%;
   }
 }
-/* line 219, ../scss/modules/_typography.scss */
+/* line 220, ../scss/modules/_typography.scss */
 main ol, footer ol, .highlighted ol {
   counter-reset: li;
   /* Initiate a counter */
@@ -2118,7 +2119,7 @@ main ol, footer ol, .highlighted ol {
   padding-left: 0;
   /* Remove the default left padding */
 }
-/* line 223, ../scss/modules/_typography.scss */
+/* line 224, ../scss/modules/_typography.scss */
 main ol > li, footer ol > li, .highlighted ol > li {
   position: relative;
   /* Create a positioning context */
@@ -2127,7 +2128,7 @@ main ol > li, footer ol > li, .highlighted ol > li {
   padding-left: 1.7em;
   margin-bottom: 1em;
 }
-/* line 228, ../scss/modules/_typography.scss */
+/* line 229, ../scss/modules/_typography.scss */
 main ol > li:before, footer ol > li:before, .highlighted ol > li:before {
   position: absolute;
   top: 0;
@@ -2142,22 +2143,22 @@ main ol > li:before, footer ol > li:before, .highlighted ol > li:before {
   counter-increment: li;
   /* Increment the counter by 1 */
 }
-/* line 241, ../scss/modules/_typography.scss */
+/* line 242, ../scss/modules/_typography.scss */
 main li ol, main li ul, footer li ol, footer li ul, .highlighted li ol, .highlighted li ul {
   margin-top: 0.5em;
 }
-/* line 244, ../scss/modules/_typography.scss */
+/* line 245, ../scss/modules/_typography.scss */
 main ol ol li:last-child, footer ol ol li:last-child, .highlighted ol ol li:last-child {
   margin-bottom: 0;
 }
 
-/* line 250, ../scss/modules/_typography.scss */
+/* line 251, ../scss/modules/_typography.scss */
 .edit-link {
   position: relative;
   top: -0.65rem;
   margin-left: 0.5rem;
 }
-/* line 254, ../scss/modules/_typography.scss */
+/* line 255, ../scss/modules/_typography.scss */
 .edit-link a {
   font-size: 0.875rem;
   line-height: 1.3125rem;
@@ -2171,11 +2172,11 @@ main ol ol li:last-child, footer ol ol li:last-child, .highlighted ol ol li:last
   border: 1px solid #ccc;
   font-family: "ROSans";
 }
-/* line 263, ../scss/modules/_typography.scss */
+/* line 264, ../scss/modules/_typography.scss */
 .edit-link a:link, .edit-link a:visited {
   text-decoration: none;
 }
-/* line 266, ../scss/modules/_typography.scss */
+/* line 267, ../scss/modules/_typography.scss */
 .edit-link a:hover, .edit-link a:active, .edit-link a:focus {
   background-color: #555;
   color: #fff;

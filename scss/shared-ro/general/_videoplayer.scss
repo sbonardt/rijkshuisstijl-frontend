@@ -1,0 +1,110 @@
+/* -----------------------------------------------
+   AUDIO / VIDEO SKIN
+   -----------------------------------------------*/
+.block-audio-video {
+	clear: left;
+	margin: 0 0 20px;
+	padding-bottom: 0;
+	width: 100%; // default value; will be replaced by movie width 
+	background-color: $mainbackgroundcolor;
+	max-width:100%;
+}
+.block-audio-video div img {
+	width: 100%;
+}
+
+
+.block-audio-video ul {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.block-audio-video a {
+	color: #000;
+	text-decoration: none;
+
+	&:hover, &:active{
+		text-decoration: underline;
+	}
+}
+
+.block-audio-video li.toggle {
+	background-image: none;
+	padding: 0.5em;
+	margin: 0;
+	border:1px solid lightgrey;
+
+	.close {
+		display : none;
+	}
+	.open {
+		display : block;
+		border: none;
+	}
+
+	h2 {
+		margin: 0;
+		padding: 0;
+		border-top: 0;
+		color: #000;
+		font: normal 1em/1.8 Verdana, Geneva, sans-serif;
+
+		a { 
+			position: relative;
+			padding: 0 20px;
+
+			&.close {
+				display: block;
+			}
+
+			&.open {
+				background-color: $mainbackgroundcolor;
+			}
+			
+			&:hover, &:active {
+				background-color: $darkermainbackground;
+			}
+		}
+	}
+
+	
+	h3 {
+		margin: 0;
+		padding: 0;
+		color: #000;
+		font: normal 1em/1.8 Verdana, Geneva, sans-serif;
+	}
+	
+	div.open {
+		padding: 0.5em 20px 0;
+	}
+	ul.open {
+		padding: 0.5em 0;
+	}
+	
+	
+	li.download {
+		padding: 0 10px 1em 20px;
+		margin:0 0 0 20px;
+
+		a{	
+			display:block;
+		}
+
+		&:hover, &:active {
+			background-color: $darkermainbackground;
+		}
+
+		.meta {
+			display: block;
+
+			img {
+			  vertical-align: top;
+			  margin:0 3px;
+			}
+			
+		}
+	}
+}

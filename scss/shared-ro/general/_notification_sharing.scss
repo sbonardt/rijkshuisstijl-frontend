@@ -1,0 +1,116 @@
+/* -----------------------------------------------
+    NOTIFICATIONS & RSS FEEDS
+   -----------------------------------------------*/
+
+#follow-up .block {
+	margin-bottom: 0;
+}
+
+.notifications,
+.sharing {
+	margin: 0 0 20px;
+}
+
+.notifications h2,
+.sharing h2 {
+	clear: none;
+	border-top-color: #FF6600;
+	color: #000;
+}
+
+.notifications a {
+	padding-right: 30px;
+}
+
+.notifications a.email:focus,
+.notifications a.rss-feed:focus,
+.notifications a.email:hover,
+.notifications a.rss-feed:hover {
+	color: #FF6600;
+}
+
+#follow-up .notifications li {
+	display: block;
+}
+
+
+/* -----------------------------------------------
+     SOCIAL NETWORKS SHARING
+   -----------------------------------------------*/
+
+#follow-up .sharing li {
+	display: block;
+	width: 50%;
+	float: left;
+}
+
+.sharing .common a,
+.sharing .common a:visited {
+	padding-left: 30px;
+	background-image: url(shared-ro/images/sprite-icons-sharing-xl-1.2.png);
+	color: #154273;
+}
+
+.sharing .twitter {
+	background-position: -168px 0;
+}
+
+.sharing .twitter:hover {
+	color: #008ACA;
+}
+
+.sharing .facebook {
+	background-position: -144px -24px;
+}
+
+.sharing .facebook:hover {
+	color: #254b92;
+}
+
+.sharing .hyves {
+	background-position: -120px -48px;
+}
+
+.sharing .hyves:hover {
+	color: #D77600;
+}
+
+.sharing .linkedin {
+	background-position: -96px -72px;
+}
+
+.sharing .linkedin:hover {
+	color: #006AAE;
+}
+
+.sharing .youtube {
+	background-position: -72px -96px;
+}
+
+.sharing .youtube:hover {
+	color: #C31C23;
+}
+
+.sharing .google-plus {
+	background-position: -48px -120px;
+}
+
+.sharing .google-plus:hover {
+	color: #BD3518;
+}
+
+.sharing .flickr {
+	background-position: -24px -144px;
+}
+
+.sharing .flickr:hover {
+	color: #C80970;
+}
+
+.sharing .tumblr {
+	background-position: 0 -168px;
+}
+
+.sharing .tumblr:hover {
+	color: #497392;
+}

@@ -1,0 +1,167 @@
+/* -----------------------------------------------
+    INTRO SUMMARY 
+   -----------------------------------------------*/
+
+.summary h1,
+.summary h2,
+.summary p {
+	margin: 0 0 30px;
+	color: #767676;
+	font: normal 1.5em/1.2 arial, geneva, sans-serif;
+	vertical-align: baseline;
+}
+
+.summary span {
+	color: #000;
+	font-size: 1.2em;
+}
+
+
+/* -----------------------------------------------
+    RESULTS LISTINGS
+   -----------------------------------------------*/
+.sorting {
+	margin: 0 0 1em;
+}
+.sorting + .results {
+	border-top: 2px solid $logocolor;
+	padding-top:0.8em;
+}
+
+.results a {
+	clear: left;
+	margin: 0 0 1em;
+}
+
+.results li a p {
+	margin-bottom: 0.4em;
+}
+
+.results li a {
+	margin-bottom: 0;
+}
+
+.results a:focus,
+.results a:hover {
+	text-decoration: none;
+}
+
+.results h3 {
+	margin: 0 0 0.2em;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
+.results a:focus h3,
+.results a:hover h3 {
+	text-decoration: underline;
+}
+
+.results p {
+	margin: 0;
+	color: #000000;
+	font-size: 0.917em;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
+.results .meta {
+	margin-top:.2em;
+	color: #767676;
+}
+
+
+/* -----------------------------------------------
+    RESULTS OVER 200 MESSAGE
+   -----------------------------------------------*/
+
+.results-message {
+	margin: 0 0 0 -20px;
+	padding: 10px 20px 5px;
+	background-color: $mainbackgroundcolor;
+}
+
+.results-message p {
+	margin: 0 0 0.6em;
+	padding: 0;
+}
+
+
+/* --------------------------
+   SEARCH RESULTS MESSAGE in topics
+   -------------------------*/
+
+.results-message.search-top {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
+.search .results-message.search-top {
+	padding-left: 10px;
+}
+.results-message.search-top p {
+	padding: 0;
+}
+
+/* -----------------------------------------------
+    PAGING
+   -----------------------------------------------*/
+
+ul.paging {
+	margin: 0 0 20px -20px;
+	padding-left: 20px;
+	border-top: 3px solid $logocolor;
+	font-size: 100%;
+}
+
+.paging li {
+	display: block;
+	float: left;
+	margin: 0 10px 0 0;
+	padding: 0;
+	border: 0;
+	background-image: none;
+	font: normal 1.25em/1.2 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+}
+
+.paging a,
+.paging a:visited,
+.paging span {
+	display: block;
+	padding: .7em 8px .5em;
+	color: #154273;
+	text-decoration: none;
+}
+
+.paging a:focus,
+.paging a:hover {
+	color: #0162CD;
+	text-decoration: underline;
+}
+
+.paging a,
+.paging span {
+	position: absolute;
+	top: -100000px;
+}
+
+.paging .previous a,
+.paging .next a {
+	position: static;
+	top: auto;
+}
+
+.paging strong {
+	display: block;
+	padding: .7em 8px .5em;
+	background-color: $logocolor;
+	color: #FFFFFF;
+}
+
+.paging em {
+	display: block;
+	padding: .7em 8px .5em;
+	color: #767676;
+	font-style: normal;
+	line-height: 1;
+}
