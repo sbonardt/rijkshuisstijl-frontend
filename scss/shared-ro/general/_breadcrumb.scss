@@ -1,0 +1,32 @@
+/* -----------------------------------------------
+    BREADCRUMB
+   -----------------------------------------------*/
+
+#breadcrumb {
+	margin: 0 0 0.4em;
+	font-size: 0.9167em;
+}
+
+#breadcrumb a {
+	color: $primarylinkcolor;
+	text-decoration: none;
+	margin-right: 10px;
+	display: inline-block;
+	padding: 0;
+}
+
+#breadcrumb a {
+	background: none;
+}
+
+#breadcrumb a + a {
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAMAAAAYuxziAAAABlBMVEUVQnP///+tewiuAAAAAnRSTlP/AOW3MEoAAAAYSURBVAjXY2BgZGRkAEIIAvOgLAYIkxEAAZEAFktafNEAAAAASUVORK5CYII=') no-repeat 0 0.636em;
+	// background: url(shared-ro/images/icon-arrow-breadcrumb.png) no-repeat 0% 55%;
+	padding-left: 15px;
+}
+
+#breadcrumb a:focus,
+#breadcrumb a:hover {
+	color: $secondarylinkcolor;
+	text-decoration: underline;
+}

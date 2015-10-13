@@ -253,14 +253,10 @@ nav {
     top:0;
     left:0;
     @include respond-to(medium-screens) {
-        float:right;
+
     }
     @include respond-to(large-screens) {
-        position:absolute;
-        bottom:0;
-        right:0;
-        left:auto;
-        top:auto;
+
     }
     li {
         list-style: none;
@@ -330,6 +326,45 @@ ul.sub-menu {
             content: "› ";
             right: 0.25em;
             position: absolute;
+        }
+    }
+}
+
+.second-level-menu {
+    list-style: none;
+    width:100%;
+    li {
+        @include respond-to(small-screens) {
+            // float:left;
+            display: inline-block;
+            width:49%;
+            vertical-align: top;
+        }
+        @include respond-to(medium-screens) {
+            // enough room now to go to the trusty floats
+            display: block;
+            float: left;
+            width: 50%;
+        }
+        @include respond-to(large-screens) {
+            float:left;
+            width:auto;
+            margin-right:0.1em;
+        }
+    }
+    a {
+        display:block;
+        @include respond-to(medium-screens) {
+            padding-right:1em;
+        }
+        @include respond-to(large-screens) {
+            padding: 0.45em 1em 0.55em;
+        }
+        &:link, &:visited {
+
+        }
+        &:hover, &:active, &:focus, &.active {
+            background-color:$white;
         }
     }
 }

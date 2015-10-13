@@ -1,0 +1,115 @@
+/* -----------------------------------------------
+    CALENDAR
+   -----------------------------------------------*/
+.ui-datepicker {display:none;}
+
+input.date {
+	display: inline-block;
+	width: 40%;
+	max-width: 10em;
+	margin-bottom: 0.6em;
+}
+
+/* IE10 specific */
+input.date::-ms-clear {
+  width : 0;
+  height: 0;
+}
+
+.calendar {
+	border-top: 3px solid #FCD0BB;
+}
+
+.calendar.overview {
+	border-top: 0;
+	margin-bottom: 30px;
+}
+
+.calendar img {
+	display: block;
+	width: 100%;
+	margin-bottom: 30px;
+	border-top: 3px solid #FCD0BB;
+}
+
+.calendar p {
+	display: block;
+	float: left;
+	position: relative;
+	margin: -3px 0 0;
+	border-top: 3px solid #F6631F;
+	padding: 2.4em 1.6em 0 0;
+}
+
+.calendar .date {
+	font: 1.5714em/1 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+}
+
+.calendar .time {
+	margin-left: .2em;
+	color: #767676;
+	font: 1.25em/1 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+}
+
+.calendar abbr,
+.calendar .up-to {
+	position: absolute;
+	left: 0;
+	top: 6px;
+	color: #767676;
+	font: 0.591em/1.6 Verdana, Geneva, sans-serif;
+	text-transform: uppercase;
+	border-bottom: 0;
+}
+
+.calendar .up-to {
+	font-weight: bold;
+	font-size: 0.857em;
+	line-height: 1.7;
+}
+
+.calendar abbr {
+	color: #0162CD;
+}
+
+.calendar .end {
+	padding-left: 3em;
+}
+
+.calendar .end abbr {
+	left: 3em;
+}
+
+.calendar.overview .end {
+	margin-left: -1em;
+	padding-left: 1.8em;
+}
+
+.calendar.overview .end abbr {
+	left: 1.8em;
+}
+
+.calendar ul {
+	clear: none;
+	margin: .5em 0 0 3.6em;
+}
+
+.calendar li {
+	background: none;
+	margin-bottom: 1em;
+	padding: 0;
+	font-size: 109.09%;
+	line-height: 1.4;
+}
+.column .calendar li {
+	margin-left: 0;
+}
+
+.calendar a {
+	text-decoration: none;
+}
+
+.calendar a:hover,
+.calendar a:focus {
+	text-decoration: underline;
+}

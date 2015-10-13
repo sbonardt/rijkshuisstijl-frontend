@@ -1,0 +1,92 @@
+/* -----------------------------------
+    Default Attention item  voor mobile
+   ----------------------------------*/
+#priority {
+	//#priority h2 = default h2 met border
+	position: relative;
+	margin: 10px 10px 0; // Zero bottommargin
+	
+	h2{ 
+		margin: 0.6rem 0 0.4rem;
+		border-top: 3px solid $portalcolor;
+		padding: 0.6rem 0 0;
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+		margin-bottom:0;
+		color:#154273;
+		background:none;
+		padding-left:0;
+
+		&:visited{
+			color:#154273;
+		}
+
+		&:hover, &:active {
+			color:#0162CD;
+		}
+
+		h2{
+			// overlay tekst
+			position: absolute;
+			top: -100000px;
+
+			// als tekst getoond moet worden
+			// top: 30px;
+			// left: 30px;
+			// font: normal 3rem/1 Georgia, "Times New Roman", Times, serif;
+			// color: 
+			// white;
+			// text-shadow: 
+			// black 1px 1px 1px;
+			// z-index: 200;
+			// width: 60%;
+		}
+		
+		img{
+			display: block;
+			width:100%;
+			height:auto;
+		}
+
+		& + a img, .prio-arrow  {
+			display:none;
+		}
+	}
+
+	> img {
+		display: block;
+		width:100%;
+		height:auto;
+		margin-bottom:20px;
+	}
+
+	div{
+		padding:5px 0 5px;
+		//position:absolute;
+		//bottom:0;
+		//width:70%;
+		//background-color: rgba(255,255,255,0.8);
+	}
+
+	h3 {
+		display: block;
+		padding-left: 30px;
+		//font-size: 1rem; als overlay
+		//line-height: 1.3rem;
+		font-size: 1rem; 
+		line-height: 1.5rem;
+		text-decoration: none;
+	}
+
+	p {
+		display:none;
+	}
+
+	.carrousel-toggle{
+		display:none;
+	}
+
+}

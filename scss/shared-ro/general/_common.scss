@@ -1,0 +1,233 @@
+/* -----------------------------------------------
+    COMMON CLASSES
+   -----------------------------------------------*/
+
+.intro {
+	margin: 0 0 20px;
+}
+
+.intro p {
+	font: bold 1.25em/1.6 Arial, HelveticaNeue, Helvetica, Univers, sans-serif;
+}
+
+.meta {
+	margin-bottom: 0;
+	color: #767676;
+	font-size: 0.9167em;
+}
+
+h1.publication,
+h1.faq,
+h1.news,
+h1.activity {
+	margin-bottom: 0.4em;
+
+	& + .article-meta{
+		padding-left: 30px;
+		margin-bottom: 1.8em;
+	}
+
+	& + .subheading{
+		margin: 0.2em 0;
+	}
+}
+
+.article h1.publication {
+	color: #535353;
+}
+
+.article-meta {
+	margin: 0 0 20px;
+	color: #535353;
+	font-style: normal;
+	line-height: 1.64;
+}
+
+.lead {
+	margin: .6em 0 1.6em;
+	font-weight: bold;
+}
+h1.assistive + .lead {
+	margin-top:0;
+}
+
+.lead p,
+.lead li {
+	font-weight: bold;
+}
+
+
+/* -----------------------------------------------
+    COMMON LISTS
+   -----------------------------------------------*/
+
+.common, .article .common {
+	margin: 0;
+	font-size: 1em;
+}
+// Temp fix to have some whitespace between double lists right after eachother
+.common + .common, .article .common + .common {
+	margin-top: 0.5em; 
+}
+
+.common li {
+	margin: 0 0 0.5em;
+	padding-left: 0;
+	background-image: none;
+}
+.common li a p {
+	padding-left: 0;
+}
+
+.common li ul {
+	clear: left;
+	margin: 0.4em 0 1.2em;
+	padding-left: 30px;
+	clear: left; // anchor in parent list floats left
+}
+
+.common li li {
+	margin: 0.4em 0;
+	padding: 0;
+}
+
+.common a,
+a.more,
+.spotlight a h3 {
+	display: block;
+	/* min-height: 2rem; */
+	padding: 0 0 0.5em 30px;
+	font-size: 1.083em;
+	line-height: 1.5;
+	text-decoration: none;
+}
+.spotlight a h3 {
+	padding-bottom: 0.4em;
+}
+.common a,
+a.more {
+	float: left;
+}
+#aside .more {
+	margin-top: 20px;
+}
+#aside .more + .more {
+	margin-top: 0;
+}
+
+.common a h3,.common a h4  {
+	padding-bottom: 0.3em;
+	font-size: 1em; // Fix heading size, already 13px because of hyperlink font-size.
+	line-height: 1.5;
+}
+.common a p {
+	font-size: 0.846em; // Smaller, 11px font-size for common paragraph text.
+}
+
+.common span.meta {
+	display: block;
+	margin: 0 0 -0.5em 30px;
+	position: relative;
+	top: -0.5em;
+	clear: left;
+}
+
+.common span.meta.assistive {
+  @include visuallyhidden;
+}
+
+.common li li a {
+	padding-left: 16px;
+	// zie onderaan voor background images arrow-small.png
+	font-size: 0.9167em;
+}
+
+.common .more-topics {
+	margin-top: 2em;
+	padding-right: 20px;
+}
+
+.common a:focus,
+.common a:hover,
+.more:focus,
+.more:hover {
+	text-decoration: underline;
+	color: #0162CD;
+}
+
+// common list without anchor but span shows bullet in stead of type icon
+.common li>span:first-child{
+	padding: 0 0 0.5em 0;
+	font-size: 1.083em;
+	line-height: 1.5;
+	display:inline-block;
+	padding-left: 30px;
+	background: url(shared-ro/images/sprite-bullet.png) no-repeat 10px .8em;
+}
+
+.article {
+	.two-columns > .more {
+		margin-top:0; // column items already have margin bottom
+	}
+
+	.news .more {
+		margin-top: 0;
+	}
+}
+
+.results a.more:focus,
+.results a.more:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------
+   ACTIONS: PREV/NEXT PAGING
+   -------------------------*/ 
+
+.actions {
+	clear: both;
+	margin: 40px 0 0;
+	padding-top: 20px;
+}
+
+.actions .common li {
+	display: block;
+	float: right;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+
+.actions .common .previous {
+	float: left;
+	text-align: left;
+}
+
+.actions .common a {
+	display: block;
+	margin: 0 0 20px;
+}
+
+.actions .common .next a {
+	padding: 0 30px 0 0;
+	margin-top: 1.6em; // alleen voor mobile
+}
+
+.actions .common a,
+.actions .common a:hover span.meta,
+.actions .common a:focus span.meta {
+	text-decoration: none;
+}
+
+.actions .common a:hover span,
+.actions .common a:focus span {
+	text-decoration: underline;
+}
+
+.actions .common span.meta {
+	position: relative;
+	top: -1.75em;
+	margin: 0 0 -1.75em;
+	font-size: 0.9167em;
+	text-decoration: none;
+}

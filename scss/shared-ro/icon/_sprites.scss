@@ -1,0 +1,147 @@
+/* -----------------------------------
+    magic sprites
+   ----------------------------------*/
+// $sprite-icons-xl: sprite-map("sprites/sprite-icons-xl/*.png", $spacing: 64px, $layout: vertical);
+
+// @each $icon in bigarrow,download,breadcrumb,down,download,external,open,rss,up, bullethighlight {
+//   a.#{$icon} {
+//     background: sprite($sprite-icons-xl, $icon) no-repeat;
+//     padding-left:20px;
+//     //@include sprite-dimensions($inline, $icon);
+//   }
+// }
+
+// li.download{
+//   background: sprite($sprite-icons-xl, download) no-repeat;
+//   padding-left:20px;
+// }
+
+
+@import "compass";
+
+
+$sprite-icons-xl-spacing: 20px;
+// //$logos-layout: smart;
+
+// //$logos-layout: horizontal;
+
+// @import "sprites/default/*.png";
+// @include all-default-sprites;
+
+$sprite-icons-xl-dimensions: false;
+$sprite-icons-xl-layout: diagonal;
+$sprite-icons-xl-position: 100%;
+@import "sprites/sprite-icons-xl/*.png";
+@include all-sprite-icons-xl-sprites;
+
+/* vanaf hier copieren naar scss responsive */
+
+.common a,
+a.more,
+.spotlight a h3,
+.home .topics h3 a ,
+#priority a .prio-arrow,
+.actions .common .next a {
+   @extend .sprite-icons-xl-bigarrow;
+   @include sprite-background-position($sprite-icons-xl-sprites, bigarrow, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.notifications a.faq,.common a.faq.info-1400,
+.faqs .common a.info-1400,
+h1.faq.info-1400 {
+   @extend .sprite-icons-xl-notification_faq;
+   @include sprite-background-position($sprite-icons-xl-sprites, notification_faq, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.results .common a.faq.info-1400,
+.article .faqs.overview a.info-1400,
+.common.results a.faq.info-1400 {
+   @extend .sprite-icons-xl-notification_faq;
+   @include sprite-background-position($sprite-icons-xl-sprites, notification_faq, 8px, 3px); // voorbeeld als offset nodig is
+}
+
+.notifications .common a.email {
+   @extend .sprite-icons-xl-notification_mail;
+   @include sprite-background-position($sprite-icons-xl-sprites, notification_mail, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+h1.publication,
+.common a.publication,
+.spotlight a.publication h3,
+.docs-pubs a {
+   @extend .sprite-icons-xl-publication;
+   @include sprite-background-position($sprite-icons-xl-sprites, publication, -2px, -1px); // voorbeeld als offset nodig is
+}
+
+.results .common a.publication.info-1400,
+.common.results a.publication.info-1400 {
+   @extend .sprite-icons-xl-publication;
+   @include sprite-background-position($sprite-icons-xl-sprites, publication, 8px, 3px); // voorbeeld als offset nodig is
+}
+
+h1.activity,
+.common a.activity {
+   @extend .sprite-icons-xl-activity;
+   @include sprite-background-position($sprite-icons-xl-sprites, activity, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.common a.email{
+   @extend .sprite-icons-xl-mail;
+   @include sprite-background-position($sprite-icons-xl-sprites, mail, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.anchors .common a  {
+   @extend .sprite-icons-xl-down;
+   @include sprite-background-position($sprite-icons-xl-sprites, down, -2px, -2px); // voorbeeld als offset nodig is
+}
+.common a.video,
+.spotlight a.video h3  {
+   @extend .sprite-icons-xl-video;
+   @include sprite-background-position($sprite-icons-xl-sprites, video, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+h1.faq,
+.faqs .common a,
+.common a.faq,
+.spotlight a.faq h3{
+   @extend .sprite-icons-xl-faq;
+   @include sprite-background-position($sprite-icons-xl-sprites, faq, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.common a.external,
+.spotlight a.external h3 {
+   @extend .sprite-icons-xl-external;
+   @include sprite-background-position($sprite-icons-xl-sprites, external, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.common a.rss-feed {
+   @extend .sprite-icons-xl-rss-feed;
+   @include sprite-background-position($sprite-icons-xl-sprites, rss-feed, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+h1.news,
+.common a.news,
+.spotlight a.news h3  {
+   	@extend .sprite-icons-xl-news;
+  	@include sprite-background-position($sprite-icons-xl-sprites, news, -2px, -2px); // voorbeeld als offset nodig is
+}
+
+.actions .common .previous a  {
+   	@extend .sprite-icons-xl-back;
+  	@include sprite-background-position($sprite-icons-xl-sprites, back, -2px, -4px); // voorbeeld als offset nodig is
+}
+
+
+/* voor resposive 50em */
+.results .common a.faq.info-1400,
+.article .faqs.overview a.info-1400,
+.common.results a.faq.info-1400 {
+   @extend .sprite-icons-xl-notification_faq;
+   @include sprite-background-position($sprite-icons-xl-sprites, notification_faq, 20px, 3px); // voorbeeld als offset nodig is
+}
+
+.results .common a.publication.info-1400,
+.common.results a.publication.info-1400 {
+   @extend .sprite-icons-xl-publication;
+   @include sprite-background-position($sprite-icons-xl-sprites, publication, 20px, 3px); // voorbeeld als offset nodig is
+}

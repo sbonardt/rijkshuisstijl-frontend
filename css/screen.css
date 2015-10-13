@@ -4,48 +4,52 @@
  * Description: Stylesheet for 'Make it so' base theme
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/**
+/*
  * File:        _base.scss
  * Description: This base file contains all project VARIABLES and (custom) mixins 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/**
-* WEBSITE SETTINGS. Change these as desired:
-*/
+/*
+ * Wesbite settings
+ */
 /* Theme colors */
 /* Generic helper colours */
+/* 
+ * Mixin: Breakpoints handling RWD including Old-IE (lte IE8)
+ */
 /* Media Query Breakpoints */
 /* 
- * Mixin: Breakpoints handling RWD including Old-IE (lte IE98)
-*/
-/* 
  * Mixin: Old IE. Only print this for Old-ie stylesheet
-*/
+ */
 /* 
  * Mixin: Font size rem and px mixin
-*/
+ */
 /* 
  * Mixin: Header font size rem and px mixin
-*/
+ */
 /*
  * Mixin: REM to Px
-*/
+ */
 /* 
  * Mixin: Linear gradient 
-*/
+ */
 /* Mixin: Background retina image
  * set one background image for both retina, normal and IE screens without issues.
  * use as: @include background-image(spritename, 0  0, 500px 1500px);
  * save images sprite twice the size, set the $size to half e.g. sprite img dimensions: 1000 x 1000, size 500 x 500
  * for retina able browsers background-size values are added
-*/
-/* line 194, ../scss/base/_base.scss */
+ */
+/* Extends */
+/* line 197, ../scss/base/_base.scss */
 .inner-wrap:after {
   content: "";
   display: table;
   clear: both;
 }
 
+/*
+ * load compass css3 mixin library
+ */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -853,26 +857,26 @@ blockquote {
 }
 
 /**
-* File:        _layout.scss
-* Description: _layout.scss contains all styles for page structure setup for makeitso
-* Author:      Sebastiaan Bonardt - @_sebbon
-*/
+ * File:        _layout.scss
+ * Description: _layout.scss contains all styles for page structure setup for makeitso
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
 /**
-* About the Responsive Web Design breakpoints in this setup:
-* from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
-* Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
-* 
-* page setup: body direct descendants are the main wrappers containing direct 
-* descendant with .inner-wrap class set to center the content on the page. Used in favor 
-* of a general top level wrap all wrapper for esthetics sake. 
-*
-* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
-* background color, but the contents needs to be centered on the page
-*
-* ! If no full width background-colors are in the design you can remove the inner-wrap div's and
-* set the $site-max-width on the body with margin:0 auto;
-*
-*/
+ * About the Responsive Web Design breakpoints in this setup:
+ * from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
+ * Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
+ * 
+ * page setup: body direct descendants are the main wrappers containing direct 
+ *  descendant with .inner-wrap class set to center the content on the page. Used in favor 
+ * of a general top level wrap all wrapper for esthetics sake. 
+ *
+ * The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+ * background color, but the contents needs to be centered on the page
+ *
+ * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
+ * set the $site-max-width on the body with margin:0 auto;
+ *
+ */
 /* line 24, ../scss/modules/_layout.scss */
 html {
   height: 100%;
@@ -1085,23 +1089,23 @@ body > footer {
 .main-content {
   position: relative;
 }
-/* line 193, ../scss/modules/_layout.scss */
+/* line 194, ../scss/modules/_layout.scss */
 .main-content > header, .main-content .heading {
   padding: 1rem 0 0;
 }
-/* line 195, ../scss/modules/_layout.scss */
+/* line 196, ../scss/modules/_layout.scss */
 .overview-page .main-content > header, .overview-page .main-content .heading {
   background-color: #e5f0f9;
   margin-bottom: 2rem;
 }
-/* line 208, ../scss/modules/_layout.scss */
+/* line 209, ../scss/modules/_layout.scss */
 .main-content .content-wrap {
   -webkit-order: 1;
   order: 1;
   width: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 208, ../scss/modules/_layout.scss */
+  /* line 209, ../scss/modules/_layout.scss */
   .main-content .content-wrap {
     width: 66%;
     margin-right: 2%;
@@ -1111,7 +1115,7 @@ body > footer {
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 217, ../scss/modules/_layout.scss */
+  /* line 218, ../scss/modules/_layout.scss */
   .main-content .content-wrap + aside {
     width: 30%;
     margin-left: 2%;
@@ -1119,7 +1123,7 @@ body > footer {
   }
 }
 
-/* line 227, ../scss/modules/_layout.scss */
+/* line 228, ../scss/modules/_layout.scss */
 .content {
   display: -webkit-flex;
   display: flex;
@@ -1127,108 +1131,116 @@ body > footer {
   flex-direction: column;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  margin-top: 1.75rem;
 }
 @media only screen and (min-width: 48em) {
-  /* line 227, ../scss/modules/_layout.scss */
+  /* line 228, ../scss/modules/_layout.scss */
   .content {
     -webkit-flex-direction: row;
     flex-direction: row;
     display: block;
   }
-  /* line 235, ../scss/modules/_layout.scss */
+  /* line 237, ../scss/modules/_layout.scss */
   .content + .content {
-    margin-top: 1rem;
     display: block;
+    margin-top: 0;
   }
 }
 @media only screen and (min-width: 60em) {
-  /* line 227, ../scss/modules/_layout.scss */
+  /* line 228, ../scss/modules/_layout.scss */
   .content {
     display: block;
   }
 }
 
-/* line 246, ../scss/modules/_layout.scss */
-.third {
-  min-height: 2rem;
+/* line 247, ../scss/modules/_layout.scss */
+.column {
+  min-height: 6rem;
   width: 100%;
   margin-bottom: 2rem;
   background-color: #eee;
 }
+/* line 252, ../scss/modules/_layout.scss */
+.home .column {
+  min-height: 8rem;
+}
 @media only screen and (min-width: 48em) {
-  /* line 246, ../scss/modules/_layout.scss */
+  /* line 247, ../scss/modules/_layout.scss */
+  .column {
+    margin: 0 0 1.75rem 0;
+  }
+}
+
+/* line 261, ../scss/modules/_layout.scss */
+.third {
+  width: 100%;
+}
+@media only screen and (min-width: 48em) {
+  /* line 261, ../scss/modules/_layout.scss */
   .third {
     float: left;
-    margin: 0 1%;
+    margin: 0 1% 1.75rem;
     width: 32%;
   }
-  /* line 255, ../scss/modules/_layout.scss */
+  /* line 267, ../scss/modules/_layout.scss */
   .third:first-child {
     margin-left: 0;
   }
-  /* line 258, ../scss/modules/_layout.scss */
+  /* line 270, ../scss/modules/_layout.scss */
   .third:last-child, .third + .third + .third {
     margin-right: 0;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 262, ../scss/modules/_layout.scss */
+  /* line 274, ../scss/modules/_layout.scss */
   .two-third + .third {
     margin-right: 0;
   }
 }
 
-/* line 269, ../scss/modules/_layout.scss */
+/* line 281, ../scss/modules/_layout.scss */
 .two-third {
-  min-height: 2em;
   width: 100%;
-  margin-bottom: 2em;
   background-color: #eee;
 }
 @media only screen and (min-width: 48em) {
-  /* line 269, ../scss/modules/_layout.scss */
+  /* line 281, ../scss/modules/_layout.scss */
   .two-third {
     float: left;
-    margin: 0 1% 0 0;
+    margin: 0 1% 1.75rem 0;
     width: 66%;
   }
-  /* line 278, ../scss/modules/_layout.scss */
+  /* line 288, ../scss/modules/_layout.scss */
   .two-third:first-child {
     margin-left: 0;
   }
-  /* line 281, ../scss/modules/_layout.scss */
+  /* line 291, ../scss/modules/_layout.scss */
   .two-third:last-child, .two-third + .third + .third {
     margin-right: 0;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 285, ../scss/modules/_layout.scss */
+  /* line 295, ../scss/modules/_layout.scss */
   .third + .two-third {
-    margin: 0 0 0 1%;
+    margin: 0 0 1.75rem 1%;
   }
 }
 
-/* line 292, ../scss/modules/_layout.scss */
-.half {
-  min-height: 2rem;
-  margin-bottom: 2rem;
-  background-color: #eee;
-}
 @media only screen and (min-width: 48em) {
-  /* line 292, ../scss/modules/_layout.scss */
+  /* line 302, ../scss/modules/_layout.scss */
   .half {
     float: left;
-    margin: 0 1% 0 0;
+    margin: 0 1% 1.75rem 0;
     width: 49%;
   }
-  /* line 300, ../scss/modules/_layout.scss */
+  /* line 307, ../scss/modules/_layout.scss */
   .half + .half {
-    margin: 0 0 0 1%;
+    margin: 0 0 1.75rem 1%;
   }
 }
 
 @media only screen and (min-width: 37.5em) {
-  /* line 307, ../scss/modules/_layout.scss */
+  /* line 314, ../scss/modules/_layout.scss */
   footer .inner-wrap {
     display: -webkit-flex;
     display: flex;
@@ -1239,12 +1251,12 @@ body > footer {
   }
 }
 
-/* line 317, ../scss/modules/_layout.scss */
+/* line 324, ../scss/modules/_layout.scss */
 .footer-block {
   background-color: transparent !important;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 317, ../scss/modules/_layout.scss */
+  /* line 324, ../scss/modules/_layout.scss */
   .footer-block {
     float: left;
     width: 49%;
@@ -1252,15 +1264,15 @@ body > footer {
     margin-left: 1%;
     margin-right: 1%;
   }
-  /* line 326, ../scss/modules/_layout.scss */
+  /* line 333, ../scss/modules/_layout.scss */
   .footer-block:first-child {
     margin-left: 0;
   }
-  /* line 328, ../scss/modules/_layout.scss */
+  /* line 335, ../scss/modules/_layout.scss */
   .footer-block:first-child + .footer-block {
     margin-right: 0;
   }
-  /* line 331, ../scss/modules/_layout.scss */
+  /* line 338, ../scss/modules/_layout.scss */
   .footer-block:first-child + .footer-block + .footer-block {
     margin-left: 0;
     margin-right: 0;
@@ -1268,31 +1280,31 @@ body > footer {
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 317, ../scss/modules/_layout.scss */
+  /* line 324, ../scss/modules/_layout.scss */
   .footer-block {
     width: 32%;
   }
-  /* line 341, ../scss/modules/_layout.scss */
+  /* line 348, ../scss/modules/_layout.scss */
   .footer-block:first-child {
     margin-left: 0;
   }
-  /* line 343, ../scss/modules/_layout.scss */
+  /* line 350, ../scss/modules/_layout.scss */
   .footer-block:first-child + .footer-block {
     margin-right: 1%;
   }
-  /* line 346, ../scss/modules/_layout.scss */
+  /* line 353, ../scss/modules/_layout.scss */
   .footer-block:first-child + .footer-block + .footer-block {
     margin: 0 0 0 1%;
     width: 32%;
   }
 }
 
-/* line 355, ../scss/modules/_layout.scss */
+/* line 362, ../scss/modules/_layout.scss */
 .payoff, .payoff span {
   position: absolute;
 }
 
-/* line 359, ../scss/modules/_layout.scss */
+/* line 366, ../scss/modules/_layout.scss */
 .payoff {
   border-left: 44px solid #154273;
   bottom: 0;
@@ -1617,90 +1629,74 @@ nav ul li a:hover, nav ul li a:active, nav ul li a.active {
   top: 0;
   left: 0;
 }
-@media only screen and (min-width: 37.5em) {
-  /* line 250, ../scss/modules/_navigation.scss */
-  .secondary-menu, .meta-menu {
-    float: right;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 250, ../scss/modules/_navigation.scss */
-  .secondary-menu, .meta-menu {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: auto;
-    top: auto;
-  }
-}
-/* line 265, ../scss/modules/_navigation.scss */
+/* line 261, ../scss/modules/_navigation.scss */
 .secondary-menu li, .meta-menu li {
   list-style: none;
   float: left;
 }
-/* line 268, ../scss/modules/_navigation.scss */
+/* line 264, ../scss/modules/_navigation.scss */
 .secondary-menu li a, .meta-menu li a {
   padding: 0.5em;
   display: block;
 }
 
-/* line 275, ../scss/modules/_navigation.scss */
+/* line 271, ../scss/modules/_navigation.scss */
 ul.sub-menu {
   padding: 0.75rem;
   margin: 0.25rem -0.625rem 1.25rem;
   background-color: #f3f3f3;
 }
 @media only screen and (min-width: 48em) {
-  /* line 275, ../scss/modules/_navigation.scss */
+  /* line 271, ../scss/modules/_navigation.scss */
   ul.sub-menu {
     margin: 0.25rem 0 1.25rem;
   }
 }
-/* line 282, ../scss/modules/_navigation.scss */
+/* line 278, ../scss/modules/_navigation.scss */
 ul.sub-menu li {
   padding: 0;
 }
-/* line 284, ../scss/modules/_navigation.scss */
+/* line 280, ../scss/modules/_navigation.scss */
 ul.sub-menu li a {
   padding: 0.5rem 1rem;
 }
-/* line 286, ../scss/modules/_navigation.scss */
+/* line 282, ../scss/modules/_navigation.scss */
 ul.sub-menu li a.active {
   background-color: #e5f0f9;
 }
-/* line 290, ../scss/modules/_navigation.scss */
+/* line 286, ../scss/modules/_navigation.scss */
 ul.sub-menu li:before {
   top: 0.5rem;
 }
-/* line 294, ../scss/modules/_navigation.scss */
+/* line 290, ../scss/modules/_navigation.scss */
 ul.sub-menu ul {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-/* line 298, ../scss/modules/_navigation.scss */
+/* line 294, ../scss/modules/_navigation.scss */
 ul.sub-menu ul li a {
   padding-left: 1.5rem;
 }
-/* line 302, ../scss/modules/_navigation.scss */
+/* line 298, ../scss/modules/_navigation.scss */
 ul.sub-menu ul li:before {
   content: "";
 }
-/* line 308, ../scss/modules/_navigation.scss */
+/* line 304, ../scss/modules/_navigation.scss */
 ul.sub-menu a {
   padding: 0.5rem;
   display: block;
 }
-/* line 314, ../scss/modules/_navigation.scss */
+/* line 310, ../scss/modules/_navigation.scss */
 ul.sub-menu a:hover, ul.sub-menu a:active, ul.sub-menu a:focus {
   background-color: #fff;
 }
 
-/* line 320, ../scss/modules/_navigation.scss */
+/* line 316, ../scss/modules/_navigation.scss */
 .breadcrumb {
   padding: 1.75rem 0;
   width: 100%;
 }
-/* line 324, ../scss/modules/_navigation.scss */
+/* line 320, ../scss/modules/_navigation.scss */
 .breadcrumb a {
   font-size: 0.875rem;
   line-height: 1.3125rem;
@@ -1708,11 +1704,61 @@ ul.sub-menu a:hover, ul.sub-menu a:active, ul.sub-menu a:focus {
   padding-right: 1em;
   position: relative;
 }
-/* line 329, ../scss/modules/_navigation.scss */
+/* line 325, ../scss/modules/_navigation.scss */
 .breadcrumb a:after {
   content: "› ";
   right: 0.25em;
   position: absolute;
+}
+
+/* line 333, ../scss/modules/_navigation.scss */
+.second-level-menu {
+  list-style: none;
+  width: 100%;
+}
+@media only screen and (min-width: 30.0625em) {
+  /* line 336, ../scss/modules/_navigation.scss */
+  .second-level-menu li {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  /* line 336, ../scss/modules/_navigation.scss */
+  .second-level-menu li {
+    display: block;
+    float: left;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 48em) {
+  /* line 336, ../scss/modules/_navigation.scss */
+  .second-level-menu li {
+    float: left;
+    width: auto;
+    margin-right: 0.1em;
+  }
+}
+/* line 355, ../scss/modules/_navigation.scss */
+.second-level-menu a {
+  display: block;
+}
+@media only screen and (min-width: 37.5em) {
+  /* line 355, ../scss/modules/_navigation.scss */
+  .second-level-menu a {
+    padding-right: 1em;
+  }
+}
+@media only screen and (min-width: 48em) {
+  /* line 355, ../scss/modules/_navigation.scss */
+  .second-level-menu a {
+    padding: 0.45em 1em 0.55em;
+  }
+}
+/* line 366, ../scss/modules/_navigation.scss */
+.second-level-menu a:hover, .second-level-menu a:active, .second-level-menu a:focus, .second-level-menu a.active {
+  background-color: #fff;
 }
 
 /**
@@ -1865,6 +1911,8 @@ footer a:hover, footer a:active, footer a:focus {
 /* line 142, ../scss/modules/_typography.scss */
 main p, main ul, main ol, main pre, main cite, main blockquote, main table, footer p, footer ul, footer ol, footer pre, footer cite, footer blockquote, footer table, .highlighted p, .highlighted ul, .highlighted ol, .highlighted pre, .highlighted cite, .highlighted blockquote, .highlighted table {
   margin: 0 0 1.5em 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 /* line 146, ../scss/modules/_typography.scss */
 main .intro, footer .intro, .highlighted .intro {

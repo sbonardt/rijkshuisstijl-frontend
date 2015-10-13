@@ -1,25 +1,25 @@
 /**
-* File:        _layout.scss
-* Description: _layout.scss contains all styles for page structure setup for makeitso
-* Author:      Sebastiaan Bonardt - @_sebbon
-*/
+ * File:        _layout.scss
+ * Description: _layout.scss contains all styles for page structure setup for makeitso
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
 
 /**
-* About the Responsive Web Design breakpoints in this setup:
-* from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
-* Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
-* 
-* page setup: body direct descendants are the main wrappers containing direct 
-* descendant with .inner-wrap class set to center the content on the page. Used in favor 
-* of a general top level wrap all wrapper for esthetics sake. 
-*
-* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
-* background color, but the contents needs to be centered on the page
-*
-* ! If no full width background-colors are in the design you can remove the inner-wrap div's and
-* set the $site-max-width on the body with margin:0 auto;
-*
-*/
+ * About the Responsive Web Design breakpoints in this setup:
+ * from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
+ * Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
+ * 
+ * page setup: body direct descendants are the main wrappers containing direct 
+ *  descendant with .inner-wrap class set to center the content on the page. Used in favor 
+ * of a general top level wrap all wrapper for esthetics sake. 
+ *
+ * The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+ * background color, but the contents needs to be centered on the page
+ *
+ * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
+ * set the $site-max-width on the body with margin:0 auto;
+ *
+ */
 
 html {
     height:100%;
@@ -190,6 +190,7 @@ body {
 // <section> and main <article> under <main>
 .main-content {
     position:relative;
+    //padding-top:1.75rem;
     > header, .heading {
         padding: 1rem 0 0;
         .overview-page & {
@@ -229,12 +230,13 @@ body {
     @include display-flex;
     @include flex-direction(column); // columns for mobile
     @include justify-content(space-between);
+    margin-top:1.75rem;
     @include respond-to(large-screens) {
         @include flex-direction(row); // rows for tabs & up
         display: block;
         & + .content {
-            margin-top:1rem;
             display: block;
+            margin-top:0;
         }
     }
     @include respond-to(xlarge-screens) {
@@ -242,15 +244,25 @@ body {
     }
 }
 
-// column classes. Half is 50%, Third 33%, TwoThirds 66%..... such wows...
-.third {
-    min-height: 2rem;
+.column {
+    min-height: 6rem;
     width:100%;
     margin-bottom: 2rem;
     background-color: #eee;
+    .home & {
+        min-height:8rem;
+    }
+    @include respond-to(large-screens) {
+        margin:0 0 1.75rem 0;
+    }
+}
+
+// column classes. Half is 50%, Third 33%, TwoThirds 66%..... such wows...
+.third {
+    width:100%;
     @include respond-to(large-screens) {
         float:left;
-        margin:0 1%;
+        margin:0 1% 1.75rem;
         width:32%;
         &:first-child {
             margin-left:0;
@@ -267,13 +279,11 @@ body {
 }
 
 .two-third {
-    min-height: 2em;
     width:100%;
-    margin-bottom: 2em;
     background-color: #eee;
     @include respond-to(large-screens) {
         float:left;
-        margin:0 1% 0 0;
+        margin:0 1% 1.75rem 0;
         width:66%;
         &:first-child {
             margin-left:0;
@@ -284,21 +294,18 @@ body {
     }
     .third + & {
         @include respond-to(large-screens) {
-            margin:0 0 0 1%;
+            margin:0 0 1.75rem 1%;
         }
     }
 }
 
 .half {
-    min-height: 2rem;
-    margin-bottom: 2rem;
-    background-color: #eee;
     @include respond-to(large-screens) {
         float:left;
-        margin:0 1% 0 0;
+        margin:0 1% 1.75rem 0;
         width:49%;
         & + .half {
-            margin: 0 0 0 1%;
+            margin: 0 0 1.75rem 1%;
         }
     }
 }
@@ -372,3 +379,31 @@ footer {
 .comments {
 
 }
+
+// .hero {
+//     position: relative;
+//     article {
+//         position: absolute;
+//         bottom:1rem;
+//         left:0;
+//         width:100%;
+//         .inner-wrap {
+
+//         }
+//         h1 {
+//             font-family: "ROSansBold", "Droid Sans", Arial, Sans-serif;
+//             @include header-font-size(2.5);
+//         }
+//         .intro {
+//             width:60%;
+//         }
+//     }
+//     .hero-image {
+//         width:150%;
+//         @include respond-to(small-screens) {
+//             height: auto;
+//             max-width:100%;
+//         width:100%;
+//         }
+//     }
+// }

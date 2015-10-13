@@ -141,7 +141,7 @@ a:hover, a:active, a:focus {
 main, footer, .highlighted {
     p, ul, ol, pre, cite, blockquote, table {
         margin:0 0 1.5em 0;
-        // @include font-size(0.9375);
+        @include font-size(1);
     }
     .intro {
         @include font-size(1.125);

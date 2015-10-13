@@ -1,0 +1,304 @@
+/* -----------------------------------------------
+    Photo Gallery
+   -----------------------------------------------*/
+.block-photo-gallery {
+	overflow: hidden;
+	margin-bottom:0; // margin zit al in de floating li items
+}
+
+.block-photo-gallery h2 span {
+	color: #4E4E4E;
+	font-weight: normal;
+}
+
+.block-photo-gallery p a {
+	display: inline;
+}
+.block-photo-gallery ul {
+	margin: 0 0 0 -20px;
+	padding: 0;
+	list-style: none;
+}
+
+.block-photo-gallery li {
+	width: 50%;
+	/*max-width: 160px;*/
+	float: left;
+	margin: 0 0 20px 0;
+	padding: 0;
+	list-style: none;
+	background: none;
+}
+
+.block-photo-gallery li:nth-child(odd) {
+	clear: left;
+}
+
+.block-photo-gallery li a {
+	display: block;
+	margin: 0 0 0 20px;
+	padding: 10px;
+	background: #f2f2f2;
+	position: relative; /* for positioning caption */
+	text-decoration: none;
+	text-align: center;
+}
+
+.block-photo-gallery li img {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+
+.block-photo-gallery .caption {
+	display: block;
+	position: relative;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	margin: 0;
+	padding: 5px 5px 0;
+	background: #f2f2f2;
+	color: #767676;
+	font: 0.75em/1.2 Verdana, Geneva, sans-serif;
+	text-align: left;
+	text-decoration: none;
+}
+
+.block-photo-gallery .caption span {
+	padding-left: 22px;
+	background: url(shared-ro/images/icon-highres.png) no-repeat 0 4px;
+	color: #535353;
+}
+
+.photo-gallery-detail-navigation {
+	position: relative;
+	margin-bottom: 10px;
+	color: #767676;
+	text-align: center;
+}
+
+.photo-gallery-detail-navigation .previous {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.photo-gallery-detail-navigation .next {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.photo-gallery-detail-navigation a {
+	text-decoration: none;
+}
+
+.picture {
+	margin-top:30px;
+}
+.picture .block-photo-gallery {
+	background: #F2F2F2 none repeat scroll 0 0;
+	text-align: center;
+	border: 0;
+	padding: 5px 10px 10px;
+	margin-bottom: 5px;
+}
+
+.picture .block-photo-gallery a {
+	line-height: 1em;
+	padding: 0;
+}
+
+.picture .block-photo-gallery p {
+	margin-bottom: .82em;
+}
+
+.picture .superheading {
+	margin: 0 0 .1em;
+	color: #01689b;
+	font: normal 1.5em/1.5 Arial, HelveticaNeue, Helvetica, Univers, sans-serif
+}
+
+/* -----------------------------------------------
+    SWIPEBOX lightbox voor smartphone en desktop
+   -----------------------------------------------*/
+
+.swipebox-overflow-hidden {
+	overflow: hidden!important;
+}
+
+#swipebox-overlay img {
+	border: none!important;
+}
+
+#swipebox-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 9999;
+	overflow: hidden;
+	display: none;
+	-webkit-user-select: none;  // Chrome all / Safari all 
+	-moz-user-select: none;     //Firefox all 
+	-ms-user-select: none;      // IE 10+ 
+	// user-select: none;
+}
+
+#swipebox-slider {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	white-space: nowrap;
+	position: absolute;
+}
+
+#swipebox-slider .slide {
+	background: url(shared-ro/images/swipebox-loader-dark.gif) no-repeat center center;
+	height: 100%;
+	line-height: 1px;
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+}
+
+#swipebox-slider .slide:before {
+	content: "";
+	display: inline-block;
+	height: 50%;
+	width: 1px;
+	margin-right: -1px;
+}
+
+#swipebox-slider .slide img {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+}
+
+#swipebox-caption {
+	position: absolute;
+	left: 0;
+	padding: 10px 20px;
+	z-index: 999;
+	height: auto;
+	right: 0;
+	top: - 20em;
+}
+#swipebox-caption p {
+	margin-bottom: 0;
+}
+#swipebox-caption p.meta {
+	color: #D9D9D9;
+}
+#swipebox-caption p.hres a {
+	color: $darkermainbackground;
+}
+#swipebox-caption p.hres a:focus,
+#swipebox-caption p.hres a:hover {
+	color: #E5F0F9;
+}
+
+#swipebox-caption.visible-bars {
+	top: 0;
+	overflow: visible;
+}
+
+#swipebox-caption.force-visible-bars {
+	top: 0!important;
+}
+
+#swipebox-action {
+	position: absolute;
+	left: 0;
+	z-index: 999;
+	height: 60px;
+	padding-top: 10px;
+	width: 100%;
+	bottom: -70px;
+}
+
+#swipebox-action.visible-bars {
+	bottom: 0;
+}
+
+#swipebox-action.force-visible-bars {
+	bottom: 0 !important;
+}
+
+#swipebox-hres {
+	display: block;
+	top: -.5em;
+	position: relative
+}
+
+#swipebox-prev,
+#swipebox-next,
+#swipebox-close {
+	background-color: $logocolor;
+	background-image: url(shared-ro/images/swipebox-sprite-icons.png);
+	background-repeat: no-repeat;
+	border: none!important;
+	text-decoration: none!important;
+	cursor: pointer;
+	position: absolute;
+	width: 50px;
+	height: 36px;
+	bottom: 0;
+}
+
+#swipebox-close {
+	background-position: 15px 8px;
+	left: 50%;
+	margin-left: -25px;
+}
+
+#swipebox-prev {
+	background-position: -35px 8px;
+	left: 10px;
+}
+
+#swipebox-next {
+	background-position: -85px 8px;
+	right: 10px;
+}
+
+#swipebox-prev.disabled,
+#swipebox-next.disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+/* -----------------------------------
+    Skin swipebox
+   ----------------------------------*/
+#swipebox-overlay {
+	background-color: #0d0d0d;
+	background-color: rgba(13,13,13,0.95);
+}
+#swipebox-action,
+#swipebox-caption {
+	//text-shadow: 1px 1px 1px #000;
+	background-color: #000;
+	color: #FFF;
+	font-size: 1em;
+	line-height: 1.5;
+	opacity: 0.9;
+}
+
+#swipebox-action {
+	background-color: transparent;
+	text-align: center;
+}
+
+#swipebox-action a {
+	color: #FFF;
+}
+

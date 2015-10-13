@@ -1,0 +1,18 @@
+/* -----------------------------------------------
+   BANNERS
+   -----------------------------------------------*/
+.banner {
+	width: 100%;
+	margin: 0 0 20px;
+}
+.banner a {
+	display: block;
+	float: left;
+}
+.banner img,
+.spotlight img {
+	max-width: 100%; // No width, only a max-width on banners en spotlight images for readability
+}
+.home .banner img{
+	max-width: 100%;
+}
