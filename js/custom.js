@@ -17,11 +17,11 @@ jQuery(function ($) {
     // assume base font size is 16px
     var windowWidthEms = ((viewportSize.getWidth()) / 16);
 
-    /*
-     * spiffy typewriting thingy on home
-     */
-    var newPlaceHolderSearchValue = "Vul een trefwoord in. Bijvoorbeeld 'Fietspad'"
-    var searchPlaceholderAttribute = $('.home #search_field').attr('placeholder');
+    // /*
+    //  * spiffy typewriting thingy on home
+    //  */
+    // var newPlaceHolderSearchValue = "Vul een trefwoord in. Bijvoorbeeld 'Fietspad'"
+    // var searchPlaceholderAttribute = $('.home #search_field').attr('placeholder');
 
     /**
      * Menu config
@@ -46,19 +46,6 @@ jQuery(function ($) {
             clearTimeout(resizeId);
             resizeId = setTimeout(preLoadChecks, 20);
     });
-
-    /**
-     * print
-     */
-    $("#printBtn").click(function(){ window.print(); });
-
-    $(window).scroll(function () { 
-       $(".search-home, .site-introduction").css({
-          'top' : -($(this).scrollTop()/6)+"px"
-       }); 
-    });
-
-    $(".search-home, .site-introduction").animate({top: "-0"}, 1250);
 
     /**
      * toggle .search when hidden on small/mobile devices
@@ -114,23 +101,6 @@ jQuery(function ($) {
         }
     });
 
-    function changeText(cont1,cont2,speed){
-        //var Otext=cont1.text();
-        //var Otext=cont1;
-        var Ocontent=cont1.split("");
-        var i=0;
-        var newValue = "";
-        function show(){
-            if(i<Ocontent.length) {  
-                //cont2.append(Ocontent[i]);
-                newValue = $('.home #search_field').attr('placeholder');
-                $('.home #search_field').attr('placeholder', newValue + Ocontent[i]);
-                i=i+1;
-            };
-        };
-        var Otimer = setInterval(show,speed);
-    }; 
-
     /**
      * preloadchecks function
      * checks viewport width and does some hides and show, and moves elements
@@ -165,9 +135,6 @@ jQuery(function ($) {
                 $("nav .menu").show();
                 $(".toggle-menu").hide();
             }    
-            $('.home #search_field').attr('placeholder', "");
-            changeText(newPlaceHolderSearchValue, searchPlaceholderAttribute , 60); //  150 = the Delay time in milliseconds between strokes.
-            //clearInterval(Otimer);
         }
 
         if (windowWidthEms < breakLarge) {
