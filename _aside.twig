@@ -2,7 +2,7 @@
 
 <aside class="third">
 
-  {% if record.contenttype.slug in ["functies", "taakvelden", "lasten-categorieen", "baten-categorieen", "balansstanden-activa", "balansstanden-passiva" ] %}
+  {% if record is defined and record.contenttype.slug in ["functies", "taakvelden", "lasten-categorieen", "baten-categorieen", "balansstanden-activa", "balansstanden-passiva" ] %}
   {# {% if record.contenttype.slug in ["sections"] and record.taxonomy.chapters is defined %} #}
       {# {% setcontent subitems = record.contenttype.slug where { chapters : record.taxonomy.chapters|first } %} #}
       {% setcontent subitems = record.contenttype.slug %}
@@ -13,7 +13,7 @@
           {% if item.sectiontype|lower != "hoofdonderdeel" %}
               {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
                 </ul></li>
-              {% elseif not loop.first %}                
+              {% elseif not loop.first %}
                 </li>
               {% endif %}
 
@@ -26,7 +26,7 @@
                  {% set recordordernumber = record.ordernumber|slice(0, record.ordernumber|length - 2) %}
                  {% if searchordernumber == recordordernumber %}
                   {% set activeTrail = ' active-trail' %}
-                 {% endif %}               
+                 {% endif %}
               {% endif %}
 
               <li class="{{ item.sectiontype|lower }}">
@@ -41,13 +41,13 @@
       </ul>
   {% endif %}
 
-  {% if record.slug in ["document", "download" ] %}
+  {% if record is defined and record.slug in ["document", "download" ] %}
       <a href="#" id="downloadBtn" class="btn btn--large" role="button"><span>Download Iv3 PDF document</span><span class="btn__subtext">Iv3 officiële versie 01-01-2015,  (278Kb)</span></a>
       <a href="#" id="printBtn" class="btn btn--large" role="button"><span>Print document</span><span class="btn__subtext">up-to-date website versie</span></a>
   {% endif %}
 
 
-{#     
+{#
     {% if record.contenttype.slug == "sections" and record.taxonomy.chapters is defined %}
         {% setcontent subitems = 'sections' where { chapters : record.taxonomy.chapters|first } %}
             <ul class="sections-menu">
