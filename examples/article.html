@@ -3,14 +3,10 @@
 <head>
     <title>Rijkshuisttijl</title>
     <meta charset="utf-8" />
-    <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
-    <link type="text/css" rel="stylesheet" href="css/screen.css" media="all" />
-    <!--[if lt IE 9]>
-    <link type="text/css" rel="stylesheet" href="css/old_ie.css" media="all" />
-    <script type="text/javascript" src="js/html5shiv.js"></script>
-    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="../css/screen.css" media="all" />
 </head>
 
 <body>
@@ -19,7 +15,7 @@
             <a class="skipcontent" href="#content">Ga naar de inhoud</a>
             <div class="logo centered">
                 <a href="/">
-                    <img src="logo.png" alt ="Logo" />
+                    <img src="../logo.png" alt ="Logo" />
                     <span>Rijkshuisstijl</span>
                 </a>
             </div>
@@ -39,15 +35,16 @@
                 <a class="toggle-menu" href="#">menu</a>
                 <a class="toggle-search" href="#">zoeken</a>
             </div>
-            <ul class="menu">
-                
+            <ul class="menu">                
                 <li class="first active">
-                    <a href="/" class="active">Home</a>
+                    <a href="index.html">Home</a>
                 </li>
-                <li class="last">
-                    <a href="#">Test article</a>
+                <li>
+                    <a href="article.html" class="active">Article page</a>
                 </li>
-                
+                <li>
+                    <a href="listing.html">Listing page</a>
+                </li>                
             </ul>
             <form action="/" method="post" accept-charset="UTF-8" class="search">
                 <div>
@@ -60,19 +57,17 @@
     </nav>
 
     <main role="main">  
-        <div class="breadcrumb">
-            <div class="inner-wrap">
-                <a href="#">Home</a>
-                <a href="#">Chapter</a>
-            </div>
-        </div>
         <article class="main-content">
             <a id="content" tabindex="0"></a>
-            <div class="heading">
+            <div class="breadcrumb">
                 <div class="inner-wrap">
-                    <h1>Article</h1>       
+                    <a href="#">Home</a>
+                    <a href="#">Chapter</a>
                 </div>
-            </div> 
+            </div>
+            <div class="inner-wrap">
+                <h1>Article</h1>       
+            </div>
             
             <div class="content inner-wrap">
                 <div class="content-wrap">                    
@@ -138,10 +133,10 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/vendor/modernizr.custom.40091.js"></script>
-    <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/vendor/viewportSize-min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script> 
+    <script type="text/javascript" src="../js/vendor/modernizr.custom.40091.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/viewportSize-min.js"></script>
+    <script type="text/javascript" src="../js/custom.js"></script> 
 
 </body>
 </html>

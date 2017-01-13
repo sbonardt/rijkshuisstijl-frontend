@@ -9,9 +9,6 @@
             <a id="content" tabindex="0"></a>
             <div class="heading">
                 <div class="inner-wrap">
-                    {% if app.request.attributes.get("_route") == "contentlisting" %}
-                        {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
-                    {% endif %}
                     <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1>
 
                     {# if used for listing a taxonomy: #}
@@ -42,54 +39,58 @@
 
             <div class="content inner-wrap">
                 <div class="column content-wrap">
+                    <ul class="listing">
+                    {% for record in records %}
+                        <li>
+                            <article class="listing-item">
+                                <a href="{{ record.link }}">
+                                    <h2 class="beta"><span class="type-icon">{{ record.contenttype.slug|slice(0, 1) }}</span><span>{{ record.title }}</span></h2>
+                                    {% if record.image!="" %}
+                                        <div class="large-4 imageholder">
+                                            <a href="{{ image(record.image) }}">
+                                                <img src="{{ thumbnail(record.image, 400, 260) }}">
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {# display something introduction-like.. #}
+                                    {% if record.introduction %}
+                                        {{ record.introduction }}
+                                    {% elseif record.teaser %}
+                                        {{ record.teaser }}
+                                    {% else %}
+                                        <p>{{ record.excerpt(175) }}</p>
+                                    {% endif %}
+                                    {% include '_sub_taxonomylinks.twig' with {'record': record} %}
+                                </a>
+                            </article>
+                        </li>
+                    {% else %}
+                        <li>
+                            <article>
+                                {% if search is defined %}
 
-                    {% if app.request.attributes.get("_route") == "contentlisting" %}
+                                    <p>
+                                        {{ __("No results found for '%search%'. Please try another search.", { '%search%': search|escape }) }}
+                                    </p>
 
-                        {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
-                        {{ record.body }}
+                                {% else %}
+                                    <h2>{{ __("No content found.") }}</h2>
+                                    <p>
+                                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': paths.root} ) }}
+                                    </p>
+                                {% endif %}
 
+                                {#
+                                optionally, you can redirect the browser to another page. Just uncomment the next line to do so.
+                                {{ redirect('/') }}
+                                #}
 
-                        {% setcontent subitems = app.request.attributes.get("contenttypeslug") %}
-                        {# {% if record.contenttype.slug in ["sections"] and record.taxonomy.chapters is defined %} #}
-                          {# {% setcontent subitems = record.contenttype.slug where { chapters : record.taxonomy.chapters|first } %} #}
-
-                          {% set subitems = []|merge(subitems) %}
-                          <ul class="">
-                          {% set currentOnderdeel = false %}
-                          {% for item in subitems %}
-                              {% if item.sectiontype|lower != "hoofdonderdeel" %}
-                                  {% if item.sectiontype|lower != "artikel" and (subitems[loop.index0 - 1] is defined) and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
-                                    </ul></li>
-                                  {% else %}
-                                    </li>
-                                  {% endif %}
-
-                                  {% set active = '' %}
-                                  {% set activeTrail = '' %}
-                                  {% if item.slug == app.request.get('slug') %}{% set active = ' active' %}{% endif %}
-
-                                  {% if item.sectiontype|lower != "artikel" %}
-                                    {% set searchordernumber = item.ordernumber|slice(0, item.ordernumber|length - 2) %}
-                                     {% set recordordernumber = record.ordernumber|slice(0, record.ordernumber|length - 2) %}
-                                     {% if searchordernumber == recordordernumber %}
-                                      {% set activeTrail = ' active-trail' %}
-                                     {% endif %}
-                                  {% endif %}
-
-                                  <li class="{{ item.sectiontype|lower }}">
-                                    {# <small>{{ loop.index0 }} - {{ item.sectiontype|lower }}</small> #}
-                                    {% if item.sectiontype|lower == "onderdeel" %}<h3>{{ item.title }}</h3>{% endif %}
-                                    {% if item.sectiontype|lower == "artikel" %}{{ item.title }}{% endif %}
-
-
-                                  {% if item.sectiontype|lower != "artikel" and (subitems[loop.index0 + 1] is defined) and subitems[loop.index0 + 1].sectiontype|lower == "artikel" %}
-                                    <ul class="sections-menu-sub-menu{{activeTrail}}">
-                                  {% endif %}
-                              {% endif %}
-                          {% endfor %}
-                          </ul>
-                    {% endif %}
-
+                            </article>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    {# If there are more records than will fit on one page, the pager is shown. #}
+                    {{ pager() }}
                 </div>
                 {% include '_aside.twig' %}
             </div>

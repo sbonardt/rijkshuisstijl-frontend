@@ -72,35 +72,6 @@
                         {%  endif %}
                     {% endfor %}
                     
-                    {% if record.sectiontype|lower == "artikel" %}
-                        {% if record.taxonomy.tags != "" %}
-                            <ul class="taglist">
-                            {% for slug, tag in record.taxonomy.tags %}
-                                {# <li><a href="/search?search={{ tag|lower }}" class="tag">{{ tag }}</a></li> #}
-                                <li class="tag">{{ tag }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% endif %}
-
-                    {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes.
-                    {{ print(record) }}
-                    #}
-
-                    {# include '_recordfooter.twig' with {'record': record} #}
-
-                    {# <p class="meta">
-                        {% set previous = record.previous('id') %}
-                        {% if previous %}
-                            <a href="{{ previous.link }}">&laquo; {{ previous.title }}</a>
-                        {% endif %}
-                        -
-                        {% set next = record.next('id') %}
-                        {% if next %}
-                            <a href="{{ next.link }}">{{ next.title }} &raquo;</a>
-                        {% endif %}
-                    </p> #}
-
                     {% set relatedrecords = record.related() %}
                     {% if relatedrecords is not empty %}
                     <p class="meta">{{ __('Related content:') }}

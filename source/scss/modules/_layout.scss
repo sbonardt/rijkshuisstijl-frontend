@@ -355,30 +355,30 @@ footer {
 }
 
 
-// .hero {
-//     position: relative;
-//     article {
-//         position: absolute;
-//         bottom:1rem;
-//         left:0;
-//         width:100%;
-//         .inner-wrap {
+.hero {
+    position: relative;
+    .heading {
+        position: absolute;
+        bottom:1rem;
+        left:0;
+        width:100%;
+        .inner-wrap {
 
-//         }
-//         h1 {
-//             font-family: "ROSansBold", "Droid Sans", Arial, Sans-serif;
-//             @include header-font-size(2.5);
-//         }
-//         .intro {
-//             width:60%;
-//         }
-//     }
-//     .hero-image {
-//         width:150%;
-//         @include respond-to(small-screens) {
-//             height: auto;
-//             max-width:100%;
-//         width:100%;
-//         }
-//     }
-// }
+        }
+        h1 {
+            font-family: "ROSansBold", "Droid Sans", Arial, Sans-serif;
+            @include header-font-size(2.5);
+        }
+        .intro {
+            width:60%;
+        }
+    }
+    .hero-image {
+        width:150%;
+        @include respond-to(small-screens) {
+            height: auto;
+            max-width:100%;
+        width:100%;
+        }
+    }
+}

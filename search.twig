@@ -38,7 +38,7 @@
                         <li>
                             <article class="search-result">
                                 <a href="{{ record.link }}">
-                                    <h1 class="beta"><span class="type-icon">{{ record.contenttype.slug|slice(0, 1) }}</span><span>{{ record.title }}</span></h1>
+                                    <h2><span class="type-icon">{{ record.contenttype.slug|slice(0, 1) }}</span><span>{{ record.title }}</span></h2>
                                     {% if record.image!="" %}
                                         <div class="large-4 imageholder">
                                             <a href="{{ image(record.image) }}">
