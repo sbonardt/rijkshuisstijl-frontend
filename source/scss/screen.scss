@@ -4,9 +4,6 @@
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
 
-// sets $old-ie to false to not incorporaste old-ie styles
-$old-ie: false;
-
 @import "base/_base.scss";
 @import "base/_normalize.scss";
 @import "modules/_overrides.scss";

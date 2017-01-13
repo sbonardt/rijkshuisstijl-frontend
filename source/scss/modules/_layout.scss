@@ -146,13 +146,13 @@ aside {
     //     }
     // }
     .content-wrap {
-        @include order(1);
+        // @include order(1);
         width:100%;
         @include respond-to(large-screens) {
             width: 66%;
             margin-right:2%;
             float:left;
-            @include order(0);
+            // @include order(0);
         }
         & + aside {
             @include respond-to(large-screens) {
@@ -166,12 +166,12 @@ aside {
 
 .content {
     // if supported, override floated column layout with flexbox    
-    @include display-flex;
-    @include flex-direction(column); // columns for mobile
-    @include justify-content(space-between);
+    // @include display-flex;
+    // @include flex-direction(column); // columns for mobile
+    // @include justify-content(space-between);
     margin-top:1.75rem;
     @include respond-to(large-screens) {
-        @include flex-direction(row); // rows for tabs & up
+        // @include flex-direction(row); // rows for tabs & up
         display: block;
         & + .content {
             display: block;
@@ -251,10 +251,10 @@ aside {
 footer {
     .inner-wrap {
         @include respond-to(medium-screens) {
-            @include display-flex;
-            //@include justify-content(space-between);
-            @include align-items(stretch);
-            @include flex-wrap(wrap);
+            // @include display-flex;
+            // //@include justify-content(space-between);
+            // @include align-items(stretch);
+            // @include flex-wrap(wrap);
         }
     }
 }

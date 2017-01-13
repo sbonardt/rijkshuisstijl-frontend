@@ -247,7 +247,6 @@ main, footer, .highlighted {
     }
 }
 
-
 .edit-link {
     position: relative;
     top:-0.65rem;
@@ -258,7 +257,7 @@ main, footer, .highlighted {
         padding:0.1em 0.35em;
         color:$black;
         background-color:$lightGrey;
-        @include border-radius(5px);
+        // @include border-radius(5px);
         border:1px solid $grey;
         font-family: "ROSans";
         &:link, &:visited {
