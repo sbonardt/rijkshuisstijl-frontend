@@ -1,0 +1,34 @@
+{
+  "name": "rijkshuisstijl-frontend",
+  "version": "1.0.0",
+  "description": "Rijkshuisstijl Frontend Bolt template theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbonardt/rijkshuisstijl-frontend"
+  },
+  "author": {
+    "name": "Sebastiaan Bonardt",
+    "email": "sebastiaan@twokings.nl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbonardt/rijkshuisstijl-frontend/issues"
+  },
+  "homepage": "https://github.com/sbonardt/rijkshuisstijl-frontend",
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "run-sequence": "^1.2.2"
+  }
+}

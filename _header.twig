@@ -17,7 +17,7 @@
     <![endif]-->
 </head>
 
-<body class="{{ class }}">
+<body class="{{ class|default() }}">
     <header role="banner">
         <div class="inner-wrap">
             <a class="skipcontent" href="#content">Ga naar de inhoud</a>
@@ -33,7 +33,7 @@
                 <h1>
                     {{ app.config.get('general/sitename') }}
                 </h1>
-            </div>  
+            </div>
         </div>
 <!--         <div class="meta-menu">
             <ul class="menu">
@@ -53,12 +53,12 @@
                 <a class="toggle-menu" href="#">menu</a>
                 <a class="toggle-search" href="#">zoeken</a>
             </div>
-            <ul class="menu">                
+            <ul class="menu">
                 {# Include the menu, as defined in config/menu.yml. Note that this theme comes with it's own _sub_menu.twig. If this file wasn't included in the current theme, the default menu template in app/theme_defaults/_sub_menu.twig would be used. #}
-                {{ menu('main', '_sub_menu.twig') }}                
+                {{ menu('main', '_sub_menu.twig') }}
             </ul>
             {% include '_sub_searchbox.twig' with { "class" : "search" } %}
-        </div>             
+        </div>
     </nav>
-    
+
     <main role="main">

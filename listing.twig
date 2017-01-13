@@ -12,7 +12,7 @@
                     {% if app.request.attributes.get("_route") == "contentlisting" %}
                         {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
                     {% endif %}
-                    <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1> 
+                    <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1>
 
                     {# if used for listing a taxonomy: #}
                     {% if taxonomytype is defined %}
@@ -36,15 +36,15 @@
                         <h1>
                             {{ __('Search results for <i>"%search%"</i>', { '%search%': search|escape }) }}
                         </h1>
-                    {% endif %}      
+                    {% endif %}
                 </div>
-            </div> 
-            
+            </div>
+
             <div class="content inner-wrap">
-                <div class="column content-wrap"> 
+                <div class="column content-wrap">
 
                     {% if app.request.attributes.get("_route") == "contentlisting" %}
-                        
+
                         {% setcontent record = app.request.attributes.get("contenttypeslug") where { sectiontype : "Hoofdonderdeel" } returnsingle %}
                         {{ record.body }}
 
@@ -52,13 +52,13 @@
                         {% setcontent subitems = app.request.attributes.get("contenttypeslug") %}
                         {# {% if record.contenttype.slug in ["sections"] and record.taxonomy.chapters is defined %} #}
                           {# {% setcontent subitems = record.contenttype.slug where { chapters : record.taxonomy.chapters|first } %} #}
-                          
+
                           {% set subitems = []|merge(subitems) %}
                           <ul class="">
                           {% set currentOnderdeel = false %}
                           {% for item in subitems %}
                               {% if item.sectiontype|lower != "hoofdonderdeel" %}
-                                  {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
+                                  {% if item.sectiontype|lower != "artikel" and (subitems[loop.index0 - 1] is defined) and subitems[loop.index0 - 1].sectiontype|lower == "artikel" %}
                                     </ul></li>
                                   {% else %}
                                     </li>
@@ -73,16 +73,16 @@
                                      {% set recordordernumber = record.ordernumber|slice(0, record.ordernumber|length - 2) %}
                                      {% if searchordernumber == recordordernumber %}
                                       {% set activeTrail = ' active-trail' %}
-                                     {% endif %}               
+                                     {% endif %}
                                   {% endif %}
 
                                   <li class="{{ item.sectiontype|lower }}">
                                     {# <small>{{ loop.index0 }} - {{ item.sectiontype|lower }}</small> #}
                                     {% if item.sectiontype|lower == "onderdeel" %}<h3>{{ item.title }}</h3>{% endif %}
                                     {% if item.sectiontype|lower == "artikel" %}{{ item.title }}{% endif %}
-                                    
 
-                                  {% if item.sectiontype|lower != "artikel" and subitems[loop.index0 + 1].sectiontype|lower == "artikel" %}
+
+                                  {% if item.sectiontype|lower != "artikel" and (subitems[loop.index0 + 1] is defined) and subitems[loop.index0 + 1].sectiontype|lower == "artikel" %}
                                     <ul class="sections-menu-sub-menu{{activeTrail}}">
                                   {% endif %}
                               {% endif %}
