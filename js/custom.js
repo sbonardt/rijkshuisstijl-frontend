@@ -4,13 +4,16 @@ jQuery(function ($) {
      * vars
      */ 
 
-    // Breakpoints, make same as base.css!!!
-    var breakXsmall = 25; //400px is 400/16 is 25 em
-    var breakSmall = 30; //480px is 30 em
-    var breakMedium = 37.5; //600px is 37.5 em
-    var breakLarge = 48; //768px is 48 em
-    var breakXlarge = 60; //960px is 60 em
-    var breakWide = 71.25; //1280px is 80 em
+    // Breakpoints, make same as base.css!!! In ems
+    var breakMidmobile = 25;
+    var breakSmall = 30;
+    var breakMedium = 37.5;
+    var breakLarge = 48;
+    var breakXlarge = 60;
+    var breakWide = 71.25;
+    var breakXwide = 87.5;
+    var breakXxwide = 100;
+    var breakRUinsane = 115;
     // see line 32
     var toggleableMenu = true;
 

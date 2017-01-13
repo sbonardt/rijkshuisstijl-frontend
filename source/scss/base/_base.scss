@@ -29,11 +29,10 @@ $white: #fff;
 
 
 /* 
- * Mixin: Breakpoints handling RWD including Old-IE (lte IE8)
+ * Mixin: Breakpoints handling RWD
  */
-$old-ie: false !default;
 
-/* Media Query Breakpoints */
+/* Media Query Breakpoints in px */
 $break-midmobile: 400;
 $break-small: 481;
 $break-medium: 600;
