@@ -3,6 +3,8 @@ jQuery(function ($) {
     /**
      * vars
      */ 
+
+    // Breakpoints, make same as base.css!!!
     var breakXsmall = 25; //400px is 400/16 is 25 em
     var breakSmall = 30; //480px is 30 em
     var breakMedium = 37.5; //600px is 37.5 em
@@ -17,12 +19,6 @@ jQuery(function ($) {
     var windowWidth = viewportSize.getWidth(); //replaces buggy and unreliable $(window).width();
     // assume base font size is 16px
     var windowWidthEms = ((viewportSize.getWidth()) / 16);
-
-    // /*
-    //  * spiffy typewriting thingy on home
-    //  */
-    // var newPlaceHolderSearchValue = "Vul een trefwoord in. Bijvoorbeeld 'Fietspad'"
-    // var searchPlaceholderAttribute = $('.home #search_field').attr('placeholder');
 
     /**
      * Menu config
@@ -135,7 +131,7 @@ jQuery(function ($) {
             if (toggleableMenu) {
                 $("nav .menu").show();
                 $(".toggle-menu").hide();
-            }    
+            }
         }
 
         if (windowWidthEms < breakLarge) {
@@ -148,5 +144,4 @@ jQuery(function ($) {
             $(".toggle-search").hide(); 
         }
     }   
-
 });

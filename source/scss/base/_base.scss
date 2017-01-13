@@ -34,22 +34,15 @@ $white: #fff;
 $old-ie: false !default;
 
 /* Media Query Breakpoints */
-$break-small: (481/16); //481px
-$break-medium:(600/16); //768px
-$break-large:(768/16); //768px
-$break-xlarge:(960/16); //1024px
-$break-wide: (1140/16); //1200px
-
-/* Media Query Breakpoints */
-$break-midmobile: 400; //400px = 25rem
-$break-small: 481; //481px
-$break-medium: 600; //600px
-$break-large: 768; //700px custom break at 700 for the tabs between generic iupad break and 600
-$break-xlarge: 960; //1024px
-$break-wide: 1280; //1200px
-$break-xwide: 1400; //1400px
-$break-xxwide: 1600; //1600px
-$break-r-u-insane: 1840; //1840px
+$break-midmobile: 400;
+$break-small: 481;
+$break-medium: 600;
+$break-large: 768;
+$break-xlarge: 960;
+$break-wide: 1140;
+$break-xwide: 1400;
+$break-xxwide: 1600;
+$break-r-u-insane: 1840;
 
 $site-max-width:90rem; // insert your sane value here
 
