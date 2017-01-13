@@ -9,7 +9,19 @@
             <a id="content" tabindex="0"></a>
             <div class="heading">
                 <div class="inner-wrap">
-                    <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1>
+                    <h1 data-bolt-field="title">{% if record.title %}{{ record.title|default('Listing page') }}{% endif %}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}">{{ __('Edit') }}</a></span>{% endif %}</h1>
+                    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ante Aristippus, et ille melius. Pudebit te, inquam, illius tabulae, quam Cleanthes sane commode verbis depingere solebat. </p>      
+                    <ul class="second-level-menu">
+                        <li>
+                            <a href="#" class="active">Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                    </ul>
 
                     {# if used for listing a taxonomy: #}
                     {% if taxonomytype is defined %}

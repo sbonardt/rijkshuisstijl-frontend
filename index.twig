@@ -6,11 +6,6 @@
         {# make the 'home' variable refer to the current record, which is set by the
            user in config.yml #}
         {% set home = record %}
-        {% if home.image is defined and home.image is not empty %}
-            <div class="hero-image">
-                <img src="{{ thumbnail(home.image, 1600, 500) }}">
-            </div>
-        {% endif %}
         <div class="inner-wrap">
             {% include '_sub_searchbox.twig' with { "class" : "search-home" } %}
             <section class="column site-introduction">
