@@ -9,6 +9,7 @@ jQuery(function ($) {
     var breakLarge = 48; //768px is 48 em
     var breakXlarge = 60; //960px is 60 em
     var breakWide = 71.25; //1280px is 80 em
+    // see line 32
     var toggleableMenu = true;
 
     var resizeId;

@@ -72,7 +72,6 @@
                         {%  endif %}
                     {% endfor %}
                     
-
                     {% if record.sectiontype|lower == "artikel" %}
                         {% if record.taxonomy.tags != "" %}
                             <ul class="taglist">
@@ -83,7 +82,6 @@
                             </ul>
                         {% endif %}
                     {% endif %}
-                    
 
                     {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes.
                     {{ print(record) }}
